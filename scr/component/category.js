@@ -14,9 +14,9 @@ export default class category extends React.Component {
             showMe: false,
             item: [
                 { key: 1, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'folder' },
-                { key: 2, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'folder' },
+                { key: 2, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'home' },
                 { key: 3, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'folder' },
-                { key: 4, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'folder' },
+                { key: 4, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'home' },
                 { key: 5, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'folder' },
                 { key: 6, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'folder' },
                 { key: 7, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'folder' },
@@ -35,6 +35,36 @@ export default class category extends React.Component {
             />
         )
     }
+    renderModel = () => {
+        return (
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={this.state.showMe}>
+                <View style={{ flex: 1 }}>
+                    {/* <View style={{ flex: 0 }}></View> */}
+                    <View style={{ borderColor: Color.greyPrimray, borderWidth: 2,  marginTop: '0%', width: '30%', height: 70 }}>
+                        <View style={{ alignItems: 'center', }}>
+                            <View>
+                                <Text style={{ marginLeft: wp('5%') }}>Share</Text>
+                                <View style={styles.border}></View>
+                                <Text style={{ marginLeft: wp('5%') }}>Print</Text>
+                                <View style={styles.border}></View>
+                                <Text onPress={() => { this.setState({ showMe: false }) }} style={{ marginLeft: wp('5%') }}>Rate it</Text>
+                            </View>
+                            {/* <TouchableOpacity
+                                style={styles.buttonModal}
+                                onPress={() => { this.setState({ showMe: false }, () => { this.props.navigation.navigate('home') }) }}>
+                                <View style={{ flexDirection: 'row', backgroundColor: '#149c83', marginTop: 30, borderRadius: 5, width: 150, height: 40 }}>
+                                    <Text style={styles.buttonTextModal}>Yes</Text>
+                                </View>
+                            </TouchableOpacity> */}
+                        </View>
+                    </View>
+                </View>
+            </Modal>
+        )
+    }
     renderRow = ({ item }) => {
         return (
             <View style={styles.mainViewFolder}>
@@ -43,40 +73,16 @@ export default class category extends React.Component {
                         onPress={
                             () => this.props.navigation.navigate('#')} />
                     <View style={styles.folderView}>
-                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('folderName')}} style={styles.folder}><Text>{item.folder}</Text></TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('folderName') }} style={styles.folder}><Text>{item.folder}</Text></TouchableOpacity>
                         <Text style={styles.date}>{item.date}</Text>
                     </View>
                 </View>
                 <TouchableOpacity onPress={() => { this.setState({ showMe: true }) }}
                     style={styles.buttonText}>
                     <Option style={{ marginLeft: wp('0%'), }} name={item.option} size={24} color="#000" />
-                    <Modal
-                        animationType="slide"
-                        transparent={true}
-                        visible={this.state.showMe}>
-                        <View style={{ flex: 1 }}>
-                            <View style={{ flex: 0 }}></View>
-                            <View style={{ borderColor: Color.greyPrimray, borderWidth: 2, marginLeft: wp('60%'), marginTop: '30%', width: '30%', height: 70 }}>
-                                <View style={{ alignItems: 'center', }}>
-                                    <View>
-                                        <Text style={{ marginLeft: wp('5%') }}>Share</Text>
-                                        <View style={styles.border}></View>
-                                        <Text style={{ marginLeft: wp('5%') }}>Print</Text>
-                                        <View style={styles.border}></View>
-                                        <Text onPress={() => { this.setState({ showMe: false }) }} style={{ marginLeft: wp('5%') }}>Rate it</Text>
-                                    </View>
-                                    {/* <TouchableOpacity
-                                style={styles.buttonModal}
-                                onPress={() => { this.setState({ showMe: false }, () => { this.props.navigation.navigate('home') }) }}>
-                                <View style={{ flexDirection: 'row', backgroundColor: '#149c83', marginTop: 30, borderRadius: 5, width: 150, height: 40 }}>
-                                    <Text style={styles.buttonTextModal}>Yes</Text>
-                                </View>
-                            </TouchableOpacity> */}
-                                </View>
-                            </View>
-                        </View>
-                    </Modal>
+                        
                 </TouchableOpacity>
+                {this.renderModel()}
             </View>
         )
     }
@@ -98,15 +104,12 @@ export default class category extends React.Component {
                 </View>
                 <View style={styles.main}>
                     <Text style={styles.cooked}>HomePage</Text>
-
-
                     <FlatList
                         // numColumns={2}
                         // contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap", height: 300 }}
-                        keyExtractor={(item, index) => console.log(index)}
+                        keyExtractor={(item, index) => item.key + ""}
                         data={this.state.item}
-                        renderItem={this.renderRow}
-                    />
+                        renderItem={this.renderRow} />
                 </View>
             </View>
 

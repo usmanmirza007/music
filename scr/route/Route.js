@@ -2,12 +2,14 @@ import selectCategory from './../component/selectCategory';
 import {createStackNavigator} from 'react-navigation-stack';
 import SafeAreaView from 'react-native-safe-area-context';
 import dashBoardBottomTab from './dashBoardBottomTab';
+import DashBoard from './DashBoard';
 import { createAppContainer } from 'react-navigation';
 import productDetail from './../component/productDetail';
 import shoppingCart from './../component/shoppingCart';
 import map from './../component/map';
 import publishHouse from './../component/publishHouse';
 import folderName from './../component/folderName';
+import playMusic from './../component/playMusic';
 const Route =  createStackNavigator({
     selectCategory: {
         screen: selectCategory,
@@ -45,12 +47,24 @@ const Route =  createStackNavigator({
             headerShown: false
         },
     },
+    playMusic: {
+        screen: playMusic,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
     tab:{
         screen: dashBoardBottomTab,
         navigationOptions: {
             headerShown: false
         },
-    }
+    },
+    tabs: {
+        screen: DashBoard,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
   },{
       initialRouteName: 'selectCategory'
   })

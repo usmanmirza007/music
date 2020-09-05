@@ -9,6 +9,7 @@ import Down from 'react-native-vector-icons/Feather'
 import Star from 'react-native-vector-icons/Entypo'
 import Share from 'react-native-vector-icons/Entypo'
 import Send from 'react-native-vector-icons/MaterialIcons'
+import { SliderBox } from "react-native-image-slider-box";
 
 export default class productDetail extends React.Component {
     constructor(props) {
@@ -20,6 +21,13 @@ export default class productDetail extends React.Component {
                 { image: require('./../image/images1.png') },
                 { image: require('./../image/images1.png') }
             ],
+            ImagesState: [
+                require('./../image/images1.png'),
+                require('./../image/images2.png'),
+                require('./../image/download.png'),
+                require('./../image/images.png'),
+                require('./../image/unnamed.png')
+            ]
 
         };
     }
@@ -37,7 +45,7 @@ export default class productDetail extends React.Component {
                 <View style={{ height: hp('9%'), }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: wp('5%'), marginTop: hp('2%'), }}>
                         <View>
-                            <IcIcon style={{marginLeft: -10, marginTop: -5,}} name={'keyboard-arrow-left'} size={40} color="#000"
+                            <IcIcon style={{ marginLeft: -10, marginTop: -5, }} name={'keyboard-arrow-left'} size={40} color="#000"
                                 onPress={
                                     () => this.props.navigation.navigate('#')} />
                         </View>
@@ -50,8 +58,40 @@ export default class productDetail extends React.Component {
                     </View>
                 </View>
                 <ScrollView>
+                    <SliderBox
+                        // ImageComponent={FastImage}
+                        images={this.state.ImagesState}
+                        sliderBoxHeight={150}
+                        onCurrentImagePressed={index => console.log(`image ${index} pressed`)}
+                        dotColor="#fff"
+                        inactiveDotColor="#90A4AE"
+                        paginationBoxVerticalPadding={20}
+                        autoplay
+                        circleLoop
+                        resizeMethod={'resize'}
+                        resizeMode={'stretch'}
+                        paginationBoxStyle={{
+                            position: "absolute",
+                            bottom: 0,
+                            padding: 0,
+                            alignItems: "center",
+                            alignSelf: "center",
+                            justifyContent: "center",
+                            paddingVertical: 10
+                        }}
+                        dotStyle={{
+                            width: 10,
+                            height: 10,
+                            borderRadius: 5,
+                            marginHorizontal: 0,
+                            padding: 0,
+                            margin: 0,
+                            backgroundColor: "rgba(128, 128, 128, 0.92)"
+                        }}
+                        ImageComponentStyle={{ borderRadius: 15, width: '90%', marginTop: 5 }}
+                        imageLoadingColor="#2196F3"
+                    />
                     <View style={{ marginHorizontal: wp('5%'), }}>
-                        <Image source={require('./../image/download.png')} style={{ alignSelf: 'center', width: 290, height: 150, }} resizeMode='stretch' />
                         <View style={styles.nameView}>
                             <Text style={styles.name}>Product Name</Text>
                             <Text style={styles.price}>$253.212</Text>
@@ -216,10 +256,10 @@ export default class productDetail extends React.Component {
                             <Text style={styles.leave}>Send Invitation to friend</Text>
                         </View>
                         <View style={styles.buttonview}>
-                            <TouchableOpacity  style={styles.cart}>
-                                <Image source={require('./../image/cart.png')} style={{tintColor: '#fff', alignSelf: 'center',  width: 20,  }} />
+                            <TouchableOpacity style={styles.cart}>
+                                <Image source={require('./../image/cart.png')} style={{ tintColor: '#fff', alignSelf: 'center', width: 20, }} />
                             </TouchableOpacity>
-                            <TouchableOpacity onPress = {() => {this.props.navigation.navigate('shoppingCart')}} style={styles.buyView}>
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('shoppingCart') }} style={styles.buyView}>
                                 <Text style={styles.buy}>BUT NOW</Text>
                             </TouchableOpacity>
                         </View>
@@ -408,12 +448,12 @@ const styles = StyleSheet.create({
         color: Color.white,
 
     },
-    buttonview:{
+    buttonview: {
         flexDirection: 'row',
         marginVertical: hp('5%'),
 
     },
-    cart:{
+    cart: {
         backgroundColor: '#000',
         width: 40,
         borderRadius: 5,

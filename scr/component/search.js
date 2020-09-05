@@ -7,7 +7,7 @@ import IcIcon from 'react-native-vector-icons/Ionicons'
 import FeaIcon from 'react-native-vector-icons/Feather'
 import Color from './../constant/color';
 import TabIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-
+import { DrawerActions } from 'react-navigation-drawer';
 export default class search extends React.Component {
     constructor(props) {
         super(props);
@@ -39,13 +39,15 @@ export default class search extends React.Component {
     }
 
     render() {
+        // this is here render
         return (
             <View style={styles.container}>
                 <View style={{ height: hp('9%'), }}>
                     <View style={{ flexDirection: 'row', marginLeft: wp('65%'), marginTop: hp('2%'), }}>
                         <IcIcon style={{ marginRight: wp('4%'), }} name={'md-options-outline'} size={24} color="#000"
-                            onPress={
-                                () => this.props.navigation.navigate('#')} />
+                             
+                             onPress={()=>{this.props.navigation.openDrawer()}} />
+{/* call drawer */}
                         <AntIcon style={{}} name={'hearto'} size={24} color="#000"
                             onPress={
                                 () => this.props.navigation.navigate('#')} />

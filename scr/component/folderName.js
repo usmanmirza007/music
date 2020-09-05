@@ -30,7 +30,7 @@ export default class folderName extends React.Component {
                         onPress={
                             () => this.props.navigation.navigate('#')} />
                     <View style={styles.folderView}>
-                        <Text style={styles.folder}>{item.folder}</Text>
+                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('playMusic')}} style={styles.folder}><Text>{item.folder}</Text></TouchableOpacity>
                         <Text style={styles.date}>{item.date}</Text>
                     </View>
                 </View>

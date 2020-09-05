@@ -8,11 +8,19 @@ export default class selectCategory extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            check: false,
-            check1: false,
-            check2: false,
-            check3: false,
-            cont: false,
+            // check: false,
+            // check1: false,
+            // check2: false,
+            // check3: false,
+            // cont: 0,
+            countCheck: {
+                count1: 0,
+                count2: 0,
+                count3: 0,
+                count4: 0,
+
+            },
+            selectedCount: 0,
             item: [
                 { name: 'Category Name', image: require('./../image/mic.png') },
                 { name: 'Category Name', image: require('./../image/mic2.png') },
@@ -22,35 +30,140 @@ export default class selectCategory extends React.Component {
         };
     }
 
-    count(){
-    
-        const check = !this.state.check
-        const show = !this.state.cont
-        this.setState({
-            check: check,
-            cont: show
-        })
+    count1() {
+
+        if (this.state.countCheck.count1 === 0) {
+            this.setState({
+                countCheck: {
+                    count1: 1,
+                    count2: this.state.countCheck.count2,
+                    count3: this.state.countCheck.count3,
+                    count4: this.state.countCheck.count4,
+
+                },
+                selectedCount: this.state.selectedCount + 1
+
+            })
+        }
+        else {
+            this.setState({
+                countCheck: {
+                    count1: 0,
+                    count2: this.state.countCheck.count2,
+                    count3: this.state.countCheck.count3,
+                    count4: this.state.countCheck.count4,
+                },
+                selectedCount: this.state.selectedCount - 1
+            })
+        }
+
+        // const check = !this.state.check
+        // const show = !this.state.cont
+        // this.setState({
+        //     check: check,
+        //     cont: show
+        // }, () =>{
+        //     if(check){
+        //         this.cout
+        //     }
+        // })
+
     }
-    count1(){
-        const check = !this.state.check1
-        this.setState({
-            check1: check,
-        })
+    count2() {
+        if (this.state.countCheck.count2 === 0) {
+        console.log("count +", this.state.countCheck.count2);
+
+            this.setState({
+                countCheck: {
+                    count1: this.state.countCheck.count1,
+                    count2: 1,
+                    count3: this.state.countCheck.count3,
+                    count4: this.state.countCheck.count4,
+                },
+                selectedCount: this.state.selectedCount + 1
+            })
+        }
+        else {
+        console.log("count -", this.state.countCheck.count2);
+
+            this.setState({
+                countCheck: {
+                    count1: this.state.countCheck.count1,
+                    count2: 0,
+                    count3: this.state.countCheck.count3,
+                    count4: this.state.countCheck.count4,
+                },
+                selectedCount: this.state.selectedCount - 1
+            })
+        }
+        // const check = !this.state.check1
+        // this.setState({
+        //     check1: check,
+        // })
+
     }
-    count2(){
-        const check = !this.state.check2
-        this.setState({
-            check2: check,
-        })
+    count3() {
+        if (this.state.countCheck.count3 === 0) {
+            this.setState({
+                countCheck: {
+                    count1: this.state.countCheck.count1,
+                    count2: this.state.countCheck.count2,
+                    count3: 1,
+                    count4: this.state.countCheck.count4,
+                },
+                selectedCount: this.state.selectedCount + 1
+            })
+        }
+        else {
+            this.setState({
+                countCheck: {
+                    count1: this.state.countCheck.count1,
+                    count2: this.state.countCheck.count2,
+                    count3: 0,
+                    count4: this.state.countCheck.count4,
+                },
+                selectedCount: this.state.selectedCount - 1
+            })
+        }
+        // const check = !this.state.check2
+        // this.setState({
+        //     check2: check,
+        // })
     }
-    count3(){
-        const check = !this.state.check3
-        this.setState({
-            check3: check,
-        })
+    count4() {
+        if (this.state.countCheck.count4 === 0) {
+            this.setState({
+                countCheck: {
+                    count1: this.state.countCheck.count1,
+                    count2: this.state.countCheck.count2,
+                    count3: this.state.countCheck.count3,
+                    count4: 1,
+                },
+                selectedCount: this.state.selectedCount + 1
+            })
+        }
+        else {
+            this.setState({
+                countCheck: {
+                    count1: this.state.countCheck.count1,
+                    count2: this.state.countCheck.count2,
+                    count3: this.state.countCheck.count3,
+                    count4: 0,
+                },
+                selectedCount: this.state.selectedCount - 1
+            })
+        }
+        // const check = !this.state.check3
+        // this.setState({
+        //     check3: check,
+        // })
     }
+
     render() {
-        const { item, check, check1, check2, check3, cont } = this.state
+        const { item, countCheck } = this.state
+        console.log('*******************************************');
+        console.log(this.state);
+        console.log('********************************************');
         return (
             <View style={styles.container}>
                 <View style={{ height: hp('9%'), justifyContent: 'center' }}>
@@ -74,31 +187,39 @@ export default class selectCategory extends React.Component {
                             )
                         })
                     } */}
-                    <TouchableOpacity style={[styles.mainViewCategory, { backgroundColor: check ? Color.primray : '#fff',
-                     borderColor: check ? Color.primray: Color.greyPrimray, }]}
-                        onPress={() => {this.count()}}>
+                    <TouchableOpacity style={[styles.mainViewCategory, {
+                        backgroundColor: countCheck.count1 === 1 ? Color.primray : '#fff',
+                        borderColor: countCheck.count1 === 1 ? Color.primray : Color.greyPrimray,
+                    }]}
+                        onPress={() => { this.count1() }}>
                         <Text style={styles.categoryName}>category Name</Text>
                         <Image source={require('./../image/mic.png')} style={styles.check} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.mainViewCategory, { backgroundColor: check1 ? Color.primray : '#fff',
-                    borderColor: check1 ? Color.primray: Color.greyPrimray, }]}
-                        onPress={() => {this.count1() }}>
+                    <TouchableOpacity style={[styles.mainViewCategory, {
+                        backgroundColor: countCheck.count2 === 1 ? Color.primray : '#fff',
+                        borderColor: countCheck.count2 === 1 ? Color.primray : Color.greyPrimray,
+                    }]}
+                        onPress={() => { this.count2() }}>
                         <Text style={styles.categoryName}>category Name</Text>
                         <Image source={require('./../image/mic2.png')} style={styles.check} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.mainViewCategory, { backgroundColor: check2 ? Color.primray : '#fff',
-                    borderColor: check2 ? Color.primray: Color.greyPrimray, }]}
-                        onPress={() => {this.count2() }}>
+                    <TouchableOpacity style={[styles.mainViewCategory, {
+                        backgroundColor: countCheck.count3 === 1 ? Color.primray : '#fff',
+                        borderColor: countCheck.count3 === 1 ? Color.primray : Color.greyPrimray,
+                    }]}
+                        onPress={() => { this.count3() }}>
                         <Text style={styles.categoryName}>category Name</Text>
                         <Image source={require('./../image/mic3.png')} style={styles.check} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.mainViewCategory, { backgroundColor: check3 ? Color.primray : '#fff' ,
-                    borderColor: check3 ? Color.primray: Color.greyPrimray, }]}
-                        onPress={() => {this.count3() }}>
+                    <TouchableOpacity style={[styles.mainViewCategory, {
+                        backgroundColor: countCheck.count4 === 1 ? Color.primray : '#fff',
+                        borderColor: countCheck.count4 === 1 ? Color.primray : Color.greyPrimray,
+                    }]}
+                        onPress={() => { this.count4() }}>
                         <Text style={styles.categoryName}>category Name</Text>
                         <Image source={require('./../image/mic4.png')} style={styles.check} />
                     </TouchableOpacity>
-                   {cont &&  <TouchableOpacity style={[styles.buttonOffer]}
+                    {this.state.selectedCount >= 2  && <TouchableOpacity style={[styles.buttonOffer]}
                         onPress={() => { this.props.navigation.navigate('tab') }}>
                         <Text style={styles.buttonTextOffer}>CONTINUE</Text>
                     </TouchableOpacity>}
@@ -134,7 +255,7 @@ const styles = StyleSheet.create({
         height: hp('10%'),
         marginTop: hp('5%'),
         justifyContent: 'center',
-        
+
     },
     buttonTextOffer: {
         color: '#000',

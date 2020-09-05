@@ -8,5 +8,6 @@ export default {
     white: '#fff',
     orange: '#FDC8B8',
     star: '#FFCC00',
-    green: '#3AB54A'
+    green: '#3AB54A',
+    black: '#000000'
 }
