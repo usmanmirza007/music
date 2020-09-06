@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList, Modal, TextInput, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Color from './../constant/color';
+import Color from './../../constant/color';
 import IcIcon from 'react-native-vector-icons/MaterialIcons'
 import LineArrowRight from 'react-native-vector-icons/AntDesign'
 import LineArrowLeft from 'react-native-vector-icons/AntDesign'
@@ -26,9 +26,9 @@ export default class playMusic extends React.Component {
                 </View>
                 <View style={styles.main}>
                     <Text style={styles.audio}>Audio Name</Text>
-                    <Image source={require('./../image/download.png')} style={styles.circle} />
+                    <Image source={require('./../../image/download.png')} style={styles.circle} />
                     <Text style={styles.author}>Author</Text>
-                    <Image source={require('./../image/line.png')} style={styles.line} resizeMode='stretch' />
+                    <Image source={require('./../../image/line.png')} style={styles.line} resizeMode='stretch' />
                     <View style={styles.mainButton}>
                         <LineArrowLeft style={{ }} name={'stepbackward'} size={20} color="#000"
                             onPress={

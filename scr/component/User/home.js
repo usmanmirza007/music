@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView, FlatList, ImageBackground, T
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 // import EnIcon from 'react-native-vector-icons/FontAwesome'
 import AntIcon from 'react-native-vector-icons/AntDesign'
-import Color from './../constant/color';
+import Color from './../../constant/color';
 import TabIcon from 'react-native-vector-icons/FontAwesome'
 
 export default class home extends React.Component {
@@ -11,25 +11,25 @@ export default class home extends React.Component {
         super(props);
         this.state = {
             images: [
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') }
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') }
             ],
             imagesTop: [
-                { imageTo: require('./../image/images2.png') },
-                { image: require('./../image/download.png') },
-                { image: require('./../image/download.png') },
-                { image: require('./../image/download.png') },
-                { image: require('./../image/download.png') }
+                { imageTo: require('./../../image/images2.png') },
+                { image: require('./../../image/download.png') },
+                { image: require('./../../image/download.png') },
+                { image: require('./../../image/download.png') },
+                { image: require('./../../image/download.png') }
             ],
             imagesMost: [
-                { image: require('./../image/images2.png') },
-                { image: require('./../image/download.png') },
-                { image: require('./../image/download.png') },
-                { image: require('./../image/download.png') },
-                { image: require('./../image/download.png') },
-                { image: require('./../image/download.png') },
+                { image: require('./../../image/images2.png') },
+                { image: require('./../../image/download.png') },
+                { image: require('./../../image/download.png') },
+                { image: require('./../../image/download.png') },
+                { image: require('./../../image/download.png') },
+                { image: require('./../../image/download.png') },
             ]
 
         };
@@ -71,7 +71,7 @@ export default class home extends React.Component {
                         <AntIcon style={{}} name={'hearto'} size={24} color="#000"
                             onPress={
                                 () => this.props.navigation.navigate('#')} />
-                        <Image source={require('./../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
+                        <Image source={require('./../../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
                     </View>
                 </View>
                 <ScrollView>
@@ -98,7 +98,7 @@ export default class home extends React.Component {
                             horizontal
                             data={this.state.images}
                             renderItem={this.renderRow}
-                            keyExtractor={(item, index) => index.toString()}
+                            keyExtractor={(item, index) => console.log("index",index.toString())}
                         />
                         <View style={styles.titleView}>
                             <Text style={styles.title}>Top Rated</Text>
@@ -108,15 +108,15 @@ export default class home extends React.Component {
                         </View>
                         <View style={{ height: 200 }}>
                             <ScrollView >
-                                <Image source={require('./../image/images2.png')} style={styles.imageTop} resizeMode='stretch' />
+                                <Image source={require('./../../image/images2.png')} style={styles.imageTop} resizeMode='stretch' />
                                 <View style={styles.imageView}>
                                     <View >
-                                        <Image source={require('./../image/download.png')} style={styles.imageFirst} resizeMode='stretch' />
-                                        <Image source={require('./../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
+                                        <Image source={require('./../../image/download.png')} style={styles.imageFirst} resizeMode='stretch' />
+                                        <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
                                     </View>
                                     <View>
-                                        <Image source={require('./../image/download.png')} style={styles.imageFirst} resizeMode='stretch' />
-                                        <Image source={require('./../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
+                                        <Image source={require('./../../image/download.png')} style={styles.imageFirst} resizeMode='stretch' />
+                                        <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
                                     </View>
                                 </View>
                             </ScrollView>

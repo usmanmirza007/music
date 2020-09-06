@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, FlatList, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 // import EnIcon from 'react-native-vector-icons/MaterialIcons'
-import Color from './../constant/color'
+import Color from './../../constant/color'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import TabIcon from 'react-native-vector-icons/MaterialIcons'
 import AntIcon from 'react-native-vector-icons/AntDesign'
@@ -14,10 +14,10 @@ export default class location extends React.Component {
             latitude: 0,
             longitude: 0,
             images: [
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') }
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') }
             ],
         };
     }
@@ -48,7 +48,7 @@ export default class location extends React.Component {
                         <AntIcon style={{}} name={'hearto'} size={24} color="#000"
                             onPress={
                                 () => this.props.navigation.navigate('#')} />
-                        <Image source={require('./../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
+                        <Image source={require('./../../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
                     </View>
                 </View>
                 <ScrollView>

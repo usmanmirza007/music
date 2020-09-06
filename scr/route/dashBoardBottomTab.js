@@ -1,12 +1,11 @@
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createAppContainer } from 'react-navigation';
-import home from './../component/home';
-import search from './../component/search';
-import category from './../component/category';
-import location from './../component/location';
-import setting from './../component/setting';
+import home from './../component/User/home';
+import search from './../component/User/search';
+import category from './../component/User/category';
+import location from './../component/User/location';
+import setting from './../component/User/setting';
 import Color from './../constant/color';
-import EnIcon from 'react-native-vector-icons/MaterialIcons'
 
 const TabScreens = createMaterialBottomTabNavigator({
     home:{

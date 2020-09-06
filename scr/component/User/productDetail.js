@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList, TextInput, ScrollView, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Color from './../constant/color';
+import Color from './../../constant/color';
 import AntIcon from 'react-native-vector-icons/AntDesign'
 import IcIcon from 'react-native-vector-icons/MaterialIcons'
 import Music from 'react-native-vector-icons/Ionicons'
@@ -16,17 +16,17 @@ export default class productDetail extends React.Component {
         super(props);
         this.state = {
             images: [
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') }
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') }
             ],
             ImagesState: [
-                require('./../image/images1.png'),
-                require('./../image/images2.png'),
-                require('./../image/download.png'),
-                require('./../image/images.png'),
-                require('./../image/unnamed.png')
+                require('./../../image/images1.png'),
+                require('./../../image/images2.png'),
+                require('./../../image/download.png'),
+                require('./../../image/images.png'),
+                require('./../../image/unnamed.png')
             ]
 
         };
@@ -53,7 +53,7 @@ export default class productDetail extends React.Component {
                             <AntIcon style={{}} name={'hearto'} size={24} color="#000"
                                 onPress={
                                     () => this.props.navigation.navigate('#')} />
-                            <Image source={require('./../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
+                            <Image source={require('./../../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
                         </View>
                     </View>
                 </View>
@@ -257,7 +257,7 @@ export default class productDetail extends React.Component {
                         </View>
                         <View style={styles.buttonview}>
                             <TouchableOpacity style={styles.cart}>
-                                <Image source={require('./../image/cart.png')} style={{ tintColor: '#fff', alignSelf: 'center', width: 20, }} />
+                                <Image source={require('./../../image/cart.png')} style={{ tintColor: '#fff', alignSelf: 'center', width: 20, }} />
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => { this.props.navigation.navigate('shoppingCart') }} style={styles.buyView}>
                                 <Text style={styles.buy}>BUT NOW</Text>

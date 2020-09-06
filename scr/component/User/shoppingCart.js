@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList, TextInput, ScrollView, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Color from './../constant/color';
+import Color from './../../constant/color';
 import AntIcon from 'react-native-vector-icons/AntDesign'
 import Heart from 'react-native-vector-icons/AntDesign'
 import Delete from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -12,10 +12,10 @@ export default class shoppingCart extends React.Component {
         super(props);
         this.state = {
             images: [
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') }
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') }
             ],
 
         };
@@ -40,8 +40,7 @@ export default class shoppingCart extends React.Component {
                         </View>
                         <View style={{ marginTop: hp('2%'), }}>
                             <AntIcon style={{}} name={'hearto'} size={26} color="#000"
-                                onPress={
-                                    () => this.props.navigation.navigate('#')} />
+                                onPress={()=>{this.props.navigation.openDrawer()}} />
                         </View>
                     </View>
                 </View>
@@ -51,7 +50,7 @@ export default class shoppingCart extends React.Component {
 
                         <TouchableOpacity style={[styles.mainCart]}>
                             <View style={{ flexDirection: 'row' }}>
-                                <Image source={require('./../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
+                                <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
                                 <View style={styles.heartView}>
                                     <View>
                                         <Text style={styles.name}>Product Name</Text>
@@ -70,7 +69,7 @@ export default class shoppingCart extends React.Component {
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.mainCart]}>
                             <View style={{ flexDirection: 'row' }}>
-                                <Image source={require('./../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
+                                <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
                                 <View style={styles.heartView}>
                                     <View>
                                         <Text style={styles.name}>Product Name</Text>
@@ -89,7 +88,7 @@ export default class shoppingCart extends React.Component {
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.mainCart]}>
                             <View style={{ flexDirection: 'row' }}>
-                                <Image source={require('./../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
+                                <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
                                 <View style={styles.heartView}>
                                     <View>
                                         <Text style={styles.name}>Product Name</Text>

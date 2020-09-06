@@ -1,24 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList, Modal, TextInput, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Color from './../constant/color';
-import IcIcon from 'react-native-vector-icons/MaterialIcons'
+import Color from './../../constant/color';
+import Folder from 'react-native-vector-icons/FontAwesome'
 import Option from 'react-native-vector-icons/SimpleLineIcons'
-import Music from 'react-native-vector-icons/Ionicons'
+import IcIcon from 'react-native-vector-icons/MaterialIcons'
 
-export default class folderName extends React.Component {
+export default class composers extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            showMe: false,
             item: [
-                { key: 1, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 2, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 3, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 4, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 5, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 6, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 7, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 8, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
+                { key: 1, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'user' },
+                { key: 2, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'user' },
+                { key: 3, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'user' },
+                { key: 4, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'user' },
+                { key: 5, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'user' },
+                { key: 6, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'user' },
+                { key: 7, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'user' },
+                { key: 8, folder: 'Folder Name', date: 'Date Created', option: 'options-vertical', folderIcon: 'user' },
             ]
         };
     }
@@ -26,11 +27,11 @@ export default class folderName extends React.Component {
         return (
             <View style={styles.mainViewFolder}>
                 <View style={{ flexDirection: 'row' }}>
-                    <Music style={{ marginTop: wp('1%'), }} name={item.music} size={24} color={Color.greyPrimray}
+                    <Folder style={{ marginTop: wp('1%'), }} name={item.folderIcon} size={24} color={Color.greyPrimray}
                         onPress={
                             () => this.props.navigation.navigate('#')} />
                     <View style={styles.folderView}>
-                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('playMusic')}} style={styles.folder}><Text>{item.folder}</Text></TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('#') }} style={styles.folder}><Text>{item.folder}</Text></TouchableOpacity>
                         <Text style={styles.date}>{item.date}</Text>
                     </View>
                 </View>
@@ -45,21 +46,25 @@ export default class folderName extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={{ height: hp('9%'), }}>
-                    <View style={{ marginHorizontal: wp('5%'), marginTop: hp('2%'), }}>
-                        <IcIcon style={{ marginLeft: -10, marginTop: -5, }} name={'keyboard-arrow-left'} size={40} color="#000"
-                            onPress={
-                                () => this.props.navigation.navigate('category')} />
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: wp('5%'), marginTop: hp('2%'), }}>
+                        <View style={{ flexDirection: 'row' }}>
+                            <IcIcon style={{ marginLeft: -10, }} name={'keyboard-arrow-left'} size={40} color="#000"
+                                onPress={
+                                    () => this.props.navigation.navigate('adminScreen')} />
+                        </View>
+                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('#') }} style={styles.buyView}>
+                            <Text style={styles.buy}>ADD NEW</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.main}>
-                    <Text style={styles.cooked}>Folder Name</Text>
+                    <Text style={styles.cooked}>Composers</Text>
                     <FlatList
                         // numColumns={2}
                         // contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap", height: 300 }}
-                        keyExtractor={(item, index) => index.toString()}
+                        keyExtractor={(item, index) => item.key + ""}
                         data={this.state.item}
-                        renderItem={this.renderRow}
-                    />
+                        renderItem={this.renderRow} />
                 </View>
             </View>
 
@@ -125,10 +130,10 @@ const styles = StyleSheet.create({
         marginHorizontal: wp('5%'),
     },
     cooked: {
-        color: Color.primray,
+        color: Color.black,
         fontWeight: '700',
         fontSize: 15,
-        marginBottom: hp('1%'),
+        marginBottom: hp('2%'),
     },
     folderView: {
         marginLeft: wp('5%'),

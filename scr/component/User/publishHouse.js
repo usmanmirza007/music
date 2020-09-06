@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList, TextInput, ScrollView, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Color from './../constant/color';
+import Color from './../../constant/color';
 import AntIcon from 'react-native-vector-icons/AntDesign'
 import IcIcon from 'react-native-vector-icons/MaterialIcons'
 
@@ -10,20 +10,20 @@ export default class publishHouse extends React.Component {
         super(props);
         this.state = {
             images: [
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') },
-                { image: require('./../image/images1.png') }
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') },
+                { image: require('./../../image/images1.png') }
             ],
             imagesMost: [
-                { key: 1, image: require('./../image/images2.png'),},
-                { key: 2, image: require('./../image/download.png'),},
-                { key: 3, image: require('./../image/download.png'),},
-                { key: 4, image: require('./../image/download.png'),},
-                { key: 5, image: require('./../image/download.png'),},
-                { key: 6, image: require('./../image/download.png'),},
-                { key: 7, image: require('./../image/download.png'),},
-                { key: 8, image: require('./../image/download.png'),},
+                { key: 1, image: require('./../../image/images2.png'),},
+                { key: 2, image: require('./../../image/download.png'),},
+                { key: 3, image: require('./../../image/download.png'),},
+                { key: 4, image: require('./../../image/download.png'),},
+                { key: 5, image: require('./../../image/download.png'),},
+                { key: 6, image: require('./../../image/download.png'),},
+                { key: 7, image: require('./../../image/download.png'),},
+                { key: 8, image: require('./../../image/download.png'),},
             ]
 
         };
@@ -50,7 +50,7 @@ export default class publishHouse extends React.Component {
                             <AntIcon style={{}} name={'hearto'} size={24} color="#000"
                                 onPress={
                                     () => this.props.navigation.navigate('#')} />
-                            <Image source={require('./../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
+                            <Image source={require('./../../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
                         </View>
                     </View>
                 </View>
@@ -59,7 +59,7 @@ export default class publishHouse extends React.Component {
                         <View style={styles.titleView}>
                             <Text style={styles.title}>Publishing House Name</Text>
                         </View>
-                        <Image source={require('./../image/images1.png')} style={styles.imageFirst} resizeMode='stretch' />
+                        <Image source={require('./../../image/images1.png')} style={styles.imageFirst} resizeMode='stretch' />
                         <Text style={styles.text}>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</Text>
                         <View style={styles.titleView}>
                             <Text style={styles.title}>Products</Text>

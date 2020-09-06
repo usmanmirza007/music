@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList, Modal, TextInput, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Color from './../constant/color';
+import Color from './../../constant/color';
 import TabIcon from 'react-native-vector-icons/Feather'
 import AntIcon from 'react-native-vector-icons/AntDesign'
 import Folder from 'react-native-vector-icons/FontAwesome'
@@ -95,7 +95,7 @@ export default class category extends React.Component {
                             <AntIcon style={{ marginLeft: wp('0%'), }} name={'hearto'} size={24} color="#000"
                                 onPress={
                                     () => this.props.navigation.navigate('#')} />
-                            <Image source={require('./../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
+                            <Image source={require('./../../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
                         </View>
                         <TouchableOpacity onPress={() => { this.props.navigation.navigate('shoppingCart') }} style={styles.buyView}>
                             <Text style={styles.buy}>ADD NEW</Text>

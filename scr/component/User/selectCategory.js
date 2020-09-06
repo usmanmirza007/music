@@ -2,30 +2,24 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import EnIcon from 'react-native-vector-icons/MaterialIcons'
-import Color from './../constant/color';
+import Color from './../../constant/color';
 
 export default class selectCategory extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // check: false,
-            // check1: false,
-            // check2: false,
-            // check3: false,
-            // cont: 0,
             countCheck: {
                 count1: 0,
                 count2: 0,
                 count3: 0,
                 count4: 0,
-
             },
             selectedCount: 0,
             item: [
-                { name: 'Category Name', image: require('./../image/mic.png') },
-                { name: 'Category Name', image: require('./../image/mic2.png') },
-                { name: 'Category Name', image: require('./../image/mic3.png') },
-                { name: 'Category Name', image: require('./../image/mic4.png') },
+                { name: 'Category Name', image: require('./../../image/mic.png') },
+                { name: 'Category Name', image: require('./../../image/mic2.png') },
+                { name: 'Category Name', image: require('./../../image/mic3.png') },
+                { name: 'Category Name', image: require('./../../image/mic4.png') },
             ]
         };
     }
@@ -56,18 +50,6 @@ export default class selectCategory extends React.Component {
                 selectedCount: this.state.selectedCount - 1
             })
         }
-
-        // const check = !this.state.check
-        // const show = !this.state.cont
-        // this.setState({
-        //     check: check,
-        //     cont: show
-        // }, () =>{
-        //     if(check){
-        //         this.cout
-        //     }
-        // })
-
     }
     count2() {
         if (this.state.countCheck.count2 === 0) {
@@ -96,11 +78,6 @@ export default class selectCategory extends React.Component {
                 selectedCount: this.state.selectedCount - 1
             })
         }
-        // const check = !this.state.check1
-        // this.setState({
-        //     check1: check,
-        // })
-
     }
     count3() {
         if (this.state.countCheck.count3 === 0) {
@@ -125,10 +102,6 @@ export default class selectCategory extends React.Component {
                 selectedCount: this.state.selectedCount - 1
             })
         }
-        // const check = !this.state.check2
-        // this.setState({
-        //     check2: check,
-        // })
     }
     count4() {
         if (this.state.countCheck.count4 === 0) {
@@ -153,10 +126,6 @@ export default class selectCategory extends React.Component {
                 selectedCount: this.state.selectedCount - 1
             })
         }
-        // const check = !this.state.check3
-        // this.setState({
-        //     check3: check,
-        // })
     }
 
     render() {
@@ -170,7 +139,7 @@ export default class selectCategory extends React.Component {
                     <View style={{ marginLeft: wp('0%') }}>
                         <EnIcon style={styles.IconStyle} name={'keyboard-arrow-left'} size={35} color="#000"
                             onPress={
-                                () => this.props.navigation.navigate('searchRide')} />
+                                () => this.props.navigation.navigate('mainScreen')} />
                     </View>
                 </View>
                 <View style={styles.mainView}>
@@ -193,7 +162,7 @@ export default class selectCategory extends React.Component {
                     }]}
                         onPress={() => { this.count1() }}>
                         <Text style={styles.categoryName}>category Name</Text>
-                        <Image source={require('./../image/mic.png')} style={styles.check} />
+                        <Image source={require('./../../image/mic.png')} style={styles.check} />
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.mainViewCategory, {
                         backgroundColor: countCheck.count2 === 1 ? Color.primray : '#fff',
@@ -201,7 +170,7 @@ export default class selectCategory extends React.Component {
                     }]}
                         onPress={() => { this.count2() }}>
                         <Text style={styles.categoryName}>category Name</Text>
-                        <Image source={require('./../image/mic2.png')} style={styles.check} />
+                        <Image source={require('./../../image/mic2.png')} style={styles.check} />
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.mainViewCategory, {
                         backgroundColor: countCheck.count3 === 1 ? Color.primray : '#fff',
@@ -209,7 +178,7 @@ export default class selectCategory extends React.Component {
                     }]}
                         onPress={() => { this.count3() }}>
                         <Text style={styles.categoryName}>category Name</Text>
-                        <Image source={require('./../image/mic3.png')} style={styles.check} />
+                        <Image source={require('./../../image/mic3.png')} style={styles.check} />
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.mainViewCategory, {
                         backgroundColor: countCheck.count4 === 1 ? Color.primray : '#fff',
@@ -217,7 +186,7 @@ export default class selectCategory extends React.Component {
                     }]}
                         onPress={() => { this.count4() }}>
                         <Text style={styles.categoryName}>category Name</Text>
-                        <Image source={require('./../image/mic4.png')} style={styles.check} />
+                        <Image source={require('./../../image/mic4.png')} style={styles.check} />
                     </TouchableOpacity>
                     {this.state.selectedCount >= 2  && <TouchableOpacity style={[styles.buttonOffer]}
                         onPress={() => { this.props.navigation.navigate('tab') }}>

@@ -5,7 +5,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import AntIcon from 'react-native-vector-icons/AntDesign'
 import IcIcon from 'react-native-vector-icons/Ionicons'
 import FeaIcon from 'react-native-vector-icons/Feather'
-import Color from './../constant/color';
+import Color from './../../constant/color';
 import TabIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { DrawerActions } from 'react-navigation-drawer';
 export default class search extends React.Component {
@@ -14,14 +14,14 @@ export default class search extends React.Component {
         this.state = {
             chooseDate: '',
             imagesMost: [
-                { key: 1, image: require('./../image/images2.png'), name: 'Product name', price: '$365.12' },
-                { key: 2, image: require('./../image/download.png'), name: 'Product name', price: '$365.12256' },
-                { key: 3, image: require('./../image/download.png'), name: 'Product name', price: '$365.12' },
-                { key: 4, image: require('./../image/download.png'), name: 'Product name', price: '$365.12' },
-                { key: 5, image: require('./../image/download.png'), name: 'Product name', price: '$365.12' },
-                { key: 6, image: require('./../image/download.png'), name: 'Product name', price: '$365.12' },
-                { key: 7, image: require('./../image/download.png'), name: 'Product name', price: '$365.12' },
-                { key: 8, image: require('./../image/download.png'), name: 'Product name', price: '$365.12' },
+                { key: 1, image: require('./../../image/images2.png'), name: 'Product name', price: '$365.12' },
+                { key: 3, image: require('./../../image/download.png'), name: 'Product name', price: '$365.12' },
+                { key: 2, image: require('./../../image/download.png'), name: 'Product name', price: '$365.12256' },
+                { key: 4, image: require('./../../image/download.png'), name: 'Product name', price: '$365.12' },
+                { key: 5, image: require('./../../image/download.png'), name: 'Product name', price: '$365.12' },
+                { key: 6, image: require('./../../image/download.png'), name: 'Product name', price: '$365.12' },
+                { key: 7, image: require('./../../image/download.png'), name: 'Product name', price: '$365.12' },
+                { key: 8, image: require('./../../image/download.png'), name: 'Product name', price: '$365.12' },
             ]
 
         };
@@ -46,12 +46,13 @@ export default class search extends React.Component {
                     <View style={{ flexDirection: 'row', marginLeft: wp('65%'), marginTop: hp('2%'), }}>
                         <IcIcon style={{ marginRight: wp('4%'), }} name={'md-options-outline'} size={24} color="#000"
                              
-                             onPress={()=>{this.props.navigation.openDrawer()}} />
+                            //  onPress={()=>{this.props.navigation.openDrawer()}} 
+                             />
 {/* call drawer */}
                         <AntIcon style={{}} name={'hearto'} size={24} color="#000"
                             onPress={
                                 () => this.props.navigation.navigate('#')} />
-                        <Image source={require('./../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
+                        <Image source={require('./../../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
                     </View>
                 </View>
                 <View style={styles.mainView}>
@@ -69,8 +70,9 @@ export default class search extends React.Component {
                     <FlatList
                         numColumns={2}
                         // contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap", height: 300 }}
-                        keyExtractor={(item, index) => item.key}
-                        data={this.state.imagesMost} renderItem={({ item }) =>
+                        keyExtractor={(item, index) => item.key+""}
+                        data={this.state.imagesMost} 
+                        renderItem={({ item }) =>
                             <View>
                                 <TouchableOpacity onPress={() => { this.props.navigation.navigate('productDetail') }}>
                                     <Image source={item.image} style={styles.imageFirst} resizeMode='stretch' />
