@@ -52,7 +52,7 @@ export default class publish extends React.Component {
                                 onPress={
                                     () => this.props.navigation.navigate('adminScreen')} />
                         </View>
-                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('#') }} style={styles.buyView}>
+                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('addPublish') }} style={styles.buyView}>
                             <Text style={styles.buy}>ADD NEW</Text>
                         </TouchableOpacity>
                     </View>

@@ -41,28 +41,31 @@ export default class setting extends React.Component {
                 </View>
                 <View style={styles.informationconatiner}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('accountinformation')}>
+                        onPress={() => this.props.navigation.navigate('accountInformation')}>
                         <Text style={{ color: 'grey', marginTop: 20, marginLeft: 20, fontSize: 15, }}>Account Information</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('neareststores')}>
+                        onPress={() => this.props.navigation.navigate('nearestStores')}>
                         <Text style={{ color: 'grey', marginTop: 20, marginLeft: 20, fontSize: 15, }}>Nearest Stores</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('forgotpassword')}>
+                        onPress={() => this.props.navigation.navigate('publishSetting')}>
                         <Text style={{ color: 'grey', marginTop: 20, marginLeft: 20, fontSize: 15, }}>Publishing House</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('forgotpassword')}>
+                        onPress={() => this.props.navigation.navigate('termsCondition')}>
                         <Text style={{ color: 'grey', marginTop: 20, marginLeft: 20, fontSize: 15, }}>Terms & Condition</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity > 
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('aboutApp')}>
                     <Text style={{ color: 'grey', marginTop: 20, marginLeft: 20, fontSize: 15, }}>About Page</Text>
+
+                    </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('forgotpassword')}>
+                        onPress={() => this.props.navigation.navigate('pageAuthor')}>
                         <Text style={{ color: 'grey', marginTop: 20, marginLeft: 20, fontSize: 15, }}>Page Author</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('login')}>
+                        onPress={() => this.props.navigation.navigate('logIn')}>
                         <Text style={{ color: 'grey', marginTop: 20, marginLeft: 20, fontSize: 15, }}>Logout</Text>
                     </TouchableOpacity>
                 </View>

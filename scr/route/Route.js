@@ -12,8 +12,26 @@ import playMusic from './../component/User/playMusic';
 import pdf from '../component/User/pdf';
 import selectCategory from './../component/User/selectCategory';
 import mainScreen from './../component/mainScreen';
+import welcome from './../component/User/welcome';
+import signIn from './../component/User/signIn';
+import signUp from './../component/User/signUp';
+import logIn from './../component/User/logIn';
+import createAccount from './../component/User/createAccount';
+import forgotPassword from './../component/User/forgotPassword';
+import changePassword from './../component/User/changePassword';
+import accountInformation from './../component/User/accountInformation';
+import checkOut from './../component/User/checkOut';
+import nearestStores from './../component/User/nearestStores';
+import termsCondition from './../component/User/termsCondition';
+import aboutApp from './../component/User/aboutApp';
+import publishSetting from './../component/User/publishSetting';
+import pageAuthor from './../component/User/pageAuthor';
+import productName from '../component/Admin/productName';
+import addCardDetail from './../component/User/addCardDetail';
 import adminScreen from './../component/Admin/adminScreen';
 import shop from './../component/Admin/shop';
+import addShop from './../component/Admin/addShop';
+import addPublish from './../component/Admin/addPublish';
 import user from './../component/Admin/user';
 import comment from './../component/Admin/comment';
 import publish from './../component/Admin/publish';
@@ -23,6 +41,114 @@ import composers from './../component/Admin/composers';
 const Route =  createStackNavigator({
     selectCategory: {
         screen: selectCategory,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    welcome: {
+        screen: welcome,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    addPublish: {
+        screen: addPublish,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    addShop: {
+        screen: addShop,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    productName: {
+        screen: productName,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    addCardDetail: {
+        screen: addCardDetail,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    pageAuthor: {
+        screen: pageAuthor,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    publishSetting: {
+        screen: publishSetting,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    aboutApp: {
+        screen: aboutApp,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    nearestStores: {
+        screen: nearestStores,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    termsCondition: {
+        screen: termsCondition,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    checkOut: {
+        screen: checkOut,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    accountInformation: {
+        screen: accountInformation,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    changePassword: {
+        screen: changePassword,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    forgotPassword: {
+        screen: forgotPassword,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    logIn: {
+        screen: logIn,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    createAccount: {
+        screen: createAccount,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    signIn: {
+        screen: signIn,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    signUp: {
+        screen: signUp,
         navigationOptions: {
             headerShown: false
         },

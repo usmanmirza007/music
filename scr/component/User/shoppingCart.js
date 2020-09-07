@@ -111,7 +111,7 @@ export default class shoppingCart extends React.Component {
                         </View>
                         <View style={styles.border}></View>
                     </View>
-                    <TouchableOpacity onPress = {() => {this.props.navigation.navigate('#')}} style={styles.checkoutView}>
+                    <TouchableOpacity onPress = {() => {this.props.navigation.navigate('checkOut')}} style={styles.checkoutView}>
                         <Text style={styles.checkout}>Proceed to Checkout</Text>
                     </TouchableOpacity>
                 </ScrollView>

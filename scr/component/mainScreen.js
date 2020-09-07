@@ -9,7 +9,7 @@ export default class mainScreen extends Component {
         return (
             <View style={styles.container}>
                     <TouchableOpacity style={{alignItems: 'center', justifyContent: 'center', backgroundColor: '#3AB54A', borderRadius: 5, height: 50, bottom: 10, width: '90%', }}
-                        onPress={() => this.props.navigation.navigate('selectCategory')}>
+                        onPress={() => this.props.navigation.navigate('welcome')}>
                         <View style={{ height: 20, width: 90, }}>
                             <Text style={{ fontWeight: 'bold', fontSize: 15,  }}>USER VIEW</Text>
                         </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, } from 'react-native';
+import { StyleSheet, Text, View,TextInput, Image, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import EnIcon from 'react-native-vector-icons/MaterialIcons'
 import Color from './../../constant/color';

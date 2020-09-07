@@ -1,9 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text, View,ScrollView, Image, FlatList, Modal, TextInput, ImageBackground, TouchableOpacity, } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, Dimensions, FlatList, Modal, TextInput, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Color from './../../constant/color';
 import IcIcon from 'react-native-vector-icons/MaterialIcons'
-
+import {
+    LineChart,
+    BarChart,
+    PieChart,
+    ProgressChart,
+    ContributionGraph,
+    StackedBarChart
+} from "react-native-chart-kit"
+const screenWidth = Dimensions.get("window").width;
+const data = {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+        {
+            data: [60, 45, 28, 80, 99, 43]
+        }
+    ]
+};
+const chartConfig = {
+    backgroundGradientFrom: "#1E2923",
+    backgroundGradientFromOpacity: 0,
+    backgroundGradientTo: "#08130D",
+    backgroundGradientToOpacity: 0.5,
+    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+    strokeWidth: 2, // optional, default 3
+    barPercentage: 0.5,
+    useShadowColorFromDataset: false // optional
+  };
 export default class adminScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -20,53 +46,62 @@ export default class adminScreen extends React.Component {
                     </View>
                 </View>
                 <ScrollView>
-                <View style={styles.main}>
-                    <View style={styles.mainView}>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('shop')} style={styles.shop}>
-                            <Text style={styles.number}>1258</Text>
-                            <Text style={styles.name}>Shop</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('user')} style={styles.shop}>
-                            <Text style={styles.number}>1258</Text>
-                            <Text style={styles.name}>User</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.mainView}>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('comment')} style={styles.shop}>
-                            <Text style={styles.number}>1258</Text>
-                            <Text style={styles.name}>Comments</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('publish')} style={styles.shop}>
-                            <Text style={styles.number}>1258</Text>
-                            <Text style={styles.name}>House Publish</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('product')} style={[styles.productView, shadow]}>
-                        <View style={[styles.image, shadow]}>
-                            <Image source={require('./../../image/money.png')} style={styles.listImage} resizeMode='stretch' />
+                    <View style={styles.main}>
+                        <View style={styles.mainView}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('shop')} style={styles.shop}>
+                                <Text style={styles.number}>1258</Text>
+                                <Text style={styles.name}>Shop</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('user')} style={styles.shop}>
+                                <Text style={styles.number}>1258</Text>
+                                <Text style={styles.name}>User</Text>
+                            </TouchableOpacity>
                         </View>
-                        <View style={styles.productName}>
-                            <Text>Products</Text>
-                            <Text>1258</Text>
+                        <View style={styles.mainView}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('comment')} style={styles.shop}>
+                                <Text style={styles.number}>1258</Text>
+                                <Text style={styles.name}>Comments</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('publish')} style={styles.shop}>
+                                <Text style={styles.number}>1258</Text>
+                                <Text style={styles.name}>House Publish</Text>
+                            </TouchableOpacity>
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('composers')} style={[styles.productView, shadow]}>
-                        <View style={[styles.image1, shadow]}>
-                            <Image source={require('./../../image/lock.png')} style={styles.lock} resizeMode='stretch' />
-                        </View>
-                        <View style={styles.productName}>
-                            <Text>Composers</Text>
-                            <Text>1258</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <View style={styles.chart}>
-                        <Text>Monthly Services</Text>
-                        <Text>Purchases</Text>
-                        <Image source={require('./../../image/ghrp.png')} style={styles.ghrp} resizeMode='stretch' />
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('product')} style={[styles.productView, shadow]}>
+                            <View style={[styles.image, shadow]}>
+                                <Image source={require('./../../image/money.png')} style={styles.listImage} resizeMode='stretch' />
+                            </View>
+                            <View style={styles.productName}>
+                                <Text>Products</Text>
+                                <Text>1258</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('composers')} style={[styles.productView, shadow]}>
+                            <View style={[styles.image1, shadow]}>
+                                <Image source={require('./../../image/lock.png')} style={styles.lock} resizeMode='stretch' />
+                            </View>
+                            <View style={styles.productName}>
+                                <Text>Composers</Text>
+                                <Text>1258</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <View style={styles.chart}>
+                            <Text>Monthly Services</Text>
+                            <Text>Purchases</Text>
+                            <BarChart
+                                style={{}}
+                                data={data}
+                                width={250}
+                                height={260}
+                                // yAxisLabel="$"
+                                chartConfig={chartConfig}
+                                verticalLabelRotation={30}
+                            />
+                            {/* <Image source={require('./../../image/ghrp.png')} style={styles.ghrp} resizeMode='stretch' /> */}
 
+                        </View>
                     </View>
-                </View>
-                
+
                 </ScrollView>
             </View>
 
@@ -91,11 +126,11 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         // justifyContent: 'center',
     },
-    chart:{
+    chart: {
         backgroundColor: '#F6A243',
         // width: hp('20%'),
         height: hp('30%'),
-        marginBottom: hp('3%'),
+        marginBottom: hp('30%'),
         borderRadius: 10,
         padding: 10
 

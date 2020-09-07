@@ -31,7 +31,7 @@ export default class product extends React.Component {
                         onPress={
                             () => this.props.navigation.navigate('#')} />
                     <View style={styles.folderView}>
-                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('#') }} style={styles.folder}><Text>{item.folder}</Text></TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('productName') }} style={styles.folder}><Text>{item.folder}</Text></TouchableOpacity>
                         <Text style={styles.date}>{item.date}</Text>
                     </View>
                 </View>
@@ -50,7 +50,7 @@ export default class product extends React.Component {
                         <View style={{ flexDirection: 'row' }}>
                             <IcIcon style={{ marginLeft: -10, }} name={'keyboard-arrow-left'} size={40} color="#000"
                                 onPress={
-                                    () => this.props.navigation.navigate('adminScreen')} />
+                                    () => this.props.navigation.goBack()} />
                         </View>
                         <TouchableOpacity onPress={() => { this.props.navigation.navigate('#') }} style={styles.buyView}>
                             <Text style={styles.buy}>ADD NEW</Text>
