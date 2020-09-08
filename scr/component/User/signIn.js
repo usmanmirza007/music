@@ -82,8 +82,7 @@ const styles = StyleSheet.create({
     hellotext: {
         marginLeft: 20,
         color: Color.primray,
-        fontSize: 25,
-        fontWeight: 'bold'
+        fontSize: 15,
     },
     inputview: {
         flex: .5,

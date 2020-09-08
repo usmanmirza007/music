@@ -25,7 +25,7 @@ export default class createAccount extends Component {
                                 source={require('./../../image/music.png')}
                             >
                             </Image>
-                            <Text style={styles.textwelcome}>Welcome {'\n'}to Eufonia</Text>
+                            <Text style={styles.textwelcome}><Text style={{fontWeight: '700'}} >Welcome </Text> {'\n'}to Eufonia</Text>
                         </View>
 
                         <View style={styles.createaccountview}>

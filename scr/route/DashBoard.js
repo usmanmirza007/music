@@ -3,16 +3,15 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import home from './../component/User/home';
 import SideMenu from './../route/SideMenu';
 import search from '../component/User/search';
-import shoppingCart from '../component/User/shoppingCart';
+import drawer from '../component/User/drawer';
 
 const DashBoard = createDrawerNavigator({
-  shoppingCart: {
-    screen: shoppingCart,
+  drawer: {
+    screen: drawer,
   },
-// here drawer navigation
 }, {
   drawerWidth: 300,
-  initialRouteName: 'shoppingCart',
+  initialRouteName: 'drawer',
   contentComponent: SideMenu,
 });
 

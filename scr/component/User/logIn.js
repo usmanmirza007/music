@@ -26,7 +26,7 @@ export default class logIn extends Component {
                                 source={require('../../image/music.png')}
                             >
                             </Image>
-                            <Text style={styles.welcometext}>Welcome {'\n'}to Eufonia</Text>
+                            <Text style={styles.welcometext}><Text style={{fontWeight: '700'}} >Welcome </Text> {'\n'}to Eufonia</Text>
                         </View>
 
                         <View style={styles.viewlogin}>
@@ -85,10 +85,9 @@ const styles = StyleSheet.create({
         marginLeft: 20
     },
     welcometext: {
-        fontSize: 25,
+        fontSize: 15,
         marginLeft: '20%',
         textAlign: 'center',
-        fontWeight: 'bold'
     },
     viewlogin: {
         alignItems: 'center',

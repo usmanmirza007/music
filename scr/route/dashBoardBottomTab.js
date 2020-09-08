@@ -6,8 +6,9 @@ import category from './../component/User/category';
 import location from './../component/User/location';
 import setting from './../component/User/setting';
 import Color from './../constant/color';
-
+import DashBoard from './DashBoard';
 const TabScreens = createMaterialBottomTabNavigator({
+   
     home:{
         screen: home,
         navigationOptions:  {

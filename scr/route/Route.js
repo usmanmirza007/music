@@ -249,12 +249,14 @@ const Route =  createStackNavigator({
             headerShown: false
         },
     },
-    tabs: {
+    search: {
         screen: DashBoard,
         navigationOptions: {
             headerShown: false
         },
     },
+    
+   
   },{
       initialRouteName: 'mainScreen'
   })

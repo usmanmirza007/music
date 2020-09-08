@@ -60,7 +60,7 @@ export default class location extends React.Component {
                                 <Text style={styles.seeMore}>SEE MORE</Text>
                             </TouchableOpacity>
                         </View>
-                        <MapView
+                        {/* <MapView
                             provider={PROVIDER_GOOGLE}
                             style={{ height: hp('30%'), borderRadius: 5, }}
                             region={{
@@ -79,7 +79,9 @@ export default class location extends React.Component {
                                 title={'My Marker'}
                                 description={'My Marker description'}
                             />
-                        </MapView>
+                        </MapView> */}
+                    <Image source={require('./../../image/map.png')} style={styles.imageFirst} resizeMode='stretch' />
+
                         <Text style={styles.text}>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</Text>
                         <View style={styles.titleView}>
                             <Text style={styles.title}>Products</Text>
@@ -96,7 +98,7 @@ export default class location extends React.Component {
                                 <Text style={styles.seeMore}>SEE MORE</Text>
                             </TouchableOpacity>
                         </View>
-                        <MapView
+                        {/* <MapView
                             provider={PROVIDER_GOOGLE}
                             style={{ height: hp('30%'), borderRadius: 5, }}
                             region={{
@@ -115,7 +117,9 @@ export default class location extends React.Component {
                                 title={'My Marker'}
                                 description={'My Marker description'}
                             />
-                        </MapView>
+                        </MapView> */}
+                    <Image source={require('./../../image/map.png')} style={styles.imageFirst} resizeMode='stretch' />
+
                         <Text style={styles.text}>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</Text>
                         <View style={styles.titleView}>
                             <Text style={styles.title}>Products</Text>
@@ -145,6 +149,12 @@ const styles = StyleSheet.create({
     },
     main: {
         marginHorizontal: wp('5%'),
+    },
+    imageFirst: {
+        width: wp('90%'), height: 200,
+        //  marginRight: 10, 
+        marginBottom: 10,
+        borderRadius: 5
     },
     title: {
         fontSize: 15,

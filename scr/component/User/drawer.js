@@ -7,7 +7,7 @@ import Heart from 'react-native-vector-icons/AntDesign'
 import Delete from 'react-native-vector-icons/MaterialCommunityIcons'
 import IcIcon from 'react-native-vector-icons/MaterialIcons'
 
-export default class shoppingCart extends React.Component {
+export default class drawer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -40,7 +40,7 @@ export default class shoppingCart extends React.Component {
                         </View>
                         <View style={{ marginTop: hp('2%'), }}>
                             <AntIcon style={{}} name={'hearto'} size={26} color="#000"
-                                // onPress={() => this.props.navigation.openDrawer()}
+                                onPress={() => this.props.navigation.openDrawer()}
                                  />
                         </View>
                     </View>

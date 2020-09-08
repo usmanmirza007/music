@@ -14,7 +14,7 @@ export default class Welcome extends Component {
                         <View style={styles.imageview2}>
                             <Image style={styles.icon}
                                 source={require('./../../image/music.png')} />
-                            <Text style={styles.textview}>Welcome {'\n'}to Eufonia</Text>
+                            <Text style={styles.textview}><Text style={{fontWeight: '700'}} >Welcome </Text>{'\n'}to Eufonia</Text>
                         </View>
                         <View style={styles.view2}>
                             <Text style={styles.textview2}>Add some tagline here if require</Text>
