@@ -43,7 +43,7 @@ export default class category extends React.Component {
                 visible={this.state.showMe}>
                 <View style={{ flex: 1 }}>
                     {/* <View style={{ flex: 0 }}></View> */}
-                    <View style={{ borderColor: Color.greyPrimray, borderWidth: 2,  marginTop: '0%', width: '30%', height: 70 }}>
+                    <View style={{ borderColor: Color.greyPrimray, borderWidth: 2, marginLeft: wp('60%'), marginTop: hp('30%'),  width: '30%', height: 70 }}>
                         <View style={{ alignItems: 'center', }}>
                             <View>
                                 <Text style={{ marginLeft: wp('5%') }}>Share</Text>

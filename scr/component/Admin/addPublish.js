@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ImageBackground, Image, TextInput, ScrollView, KeyboardAvoidingView, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
+import { View, StatusBar, ImageBackground, Image,Picker, TextInput, ScrollView, KeyboardAvoidingView, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
 import Color from './../../constant/color';
 import Left from 'react-native-vector-icons/MaterialIcons'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 export default class addPublish extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            type1: '',
+            type2: '',
+            type3: '',
+        };
+    }
     render() {
         return (
             <View style={styles.addpublishContainer}>
@@ -45,6 +52,17 @@ export default class addPublish extends Component {
                             placeholder="Ensemble"
                             underlineColorAndroid={'grey'}
                         />
+                        <View style={{ borderWidth: 1, borderColor: '#fff', width: 290, marginLeft: 0 }}>
+                            <Picker style={{ height: 30, padding: 0, color: Color.greyPrimray }}
+                                selectedValue={this.state.type1}
+                                mode = "dropdown"
+                                onValueChange={(itemValue) =>
+                                    this.setState({ type1: itemValue })}>
+                                <Picker.label label= "Category" />
+                                <Picker.Item label="music type" value="music type" />
+                                <Picker.Item label="music type" value="music type" />
+                            </Picker>
+                        </View>
                         <TextInput style={styles.textinput}
                             autoCompleteType="name"
                             keyboardType="email-address"
@@ -53,6 +71,17 @@ export default class addPublish extends Component {
                             underlineColorAndroid={'grey'}
 
                         />
+                        <View style={{ borderWidth: 1, borderColor: '#fff', width: 290, marginLeft: 0 }}>
+                            <Picker style={{ height: 30, padding: 0, color: Color.greyPrimray }}
+                                selectedValue={this.state.type2}
+                                mode = "dropdown"
+                                onValueChange={(itemValue) =>
+                                    this.setState({ type2: itemValue })}>
+                                <Picker.label label= "Difficulty" />
+                                <Picker.Item label="Karachi" value="Karachi" />
+                                <Picker.Item label="Lahore" value="Lahore" />
+                            </Picker>
+                        </View>
                         <TextInput style={styles.textinput}
                             autoCompleteType="name"
                             keyboardType="email-address"
@@ -61,6 +90,17 @@ export default class addPublish extends Component {
                             underlineColorAndroid={'grey'}
 
                         />
+                        <View style={{ borderWidth: 1, borderColor: '#fff', width: 290, marginLeft: 0 }}>
+                            <Picker style={{ height: 30, padding: 0, color: Color.greyPrimray }}
+                                selectedValue={this.state.type3}
+                                mode = "dropdown"
+                                onValueChange={(itemValue) =>
+                                    this.setState({ type3: itemValue })}>
+                                <Picker.label label= "Price" />
+                                <Picker.Item label="200" value="200" />
+                                <Picker.Item label="200" value="200" />
+                            </Picker>
+                        </View>
                         <TextInput style={styles.textinput}
                             autoCompleteType="name"
                             keyboardType="email-address"

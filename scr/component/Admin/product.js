@@ -42,6 +42,29 @@ export default class product extends React.Component {
             </View>
         )
     }
+    renderModel = () => {
+        return (
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={this.state.showMe}>
+                <View style={{ flex: 1 }}>
+                    {/* <View style={{ flex: 0 }}></View> */}
+                    <View style={{ marginHorizontal: wp('5%'), alignItems: 'center', justifyContent: 'center', borderRadius: 10, height: hp('60%'), backgroundColor: Color.geryLight, marginTop: hp('25%'), }}>
+                        <TouchableOpacity onPress={() => { this.setState({ showMe: false }, () => { this.props.navigation.navigate('addPublish') }) }} style={styles.checkoutView}>
+                            <Text style={styles.checkout}>PDF</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.setState({ showMe: false }, () => { this.props.navigation.navigate('addPublish') }) }} style={styles.checkoutView}>
+                            <Text style={styles.checkout}>Audio</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.setState({ showMe: false }, () => { this.props.navigation.navigate('addPublish') }) }} style={styles.checkoutView}>
+                            <Text style={styles.checkout}>Cover Image</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
+        )
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -52,16 +75,17 @@ export default class product extends React.Component {
                                 onPress={
                                     () => this.props.navigation.goBack()} />
                         </View>
-                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('#') }} style={styles.buyView}>
+                        <TouchableOpacity onPress={() => { this.setState({ showMe: true }) }} style={styles.buyView}>
                             <Text style={styles.buy}>ADD NEW</Text>
+                            {this.renderModel()}
+
                         </TouchableOpacity>
+
                     </View>
                 </View>
                 <View style={styles.main}>
                     <Text style={styles.cooked}>Products</Text>
                     <FlatList
-                        // numColumns={2}
-                        // contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap", height: 300 }}
                         keyExtractor={(item, index) => item.key + ""}
                         data={this.state.item}
                         renderItem={this.renderRow} />
@@ -104,6 +128,20 @@ const styles = StyleSheet.create({
         marginRight: 10,
         marginBottom: 2,
         borderRadius: 5
+    },
+    checkoutView: {
+        backgroundColor: Color.green,
+        marginHorizontal: wp('0%'),
+        width: wp('80%'),
+        height: hp('10%'),
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: hp('3%'),
+    },
+    checkout: {
+        color: '#000',
+        fontWeight: '700'
     },
     name: {
         fontSize: 10,

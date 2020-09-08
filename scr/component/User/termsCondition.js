@@ -6,13 +6,15 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import Hearto from 'react-native-vector-icons/AntDesign';
 import Cart from 'react-native-vector-icons/Zocial';
 import Left from 'react-native-vector-icons/AntDesign';
-import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
-
-var radio_props = [
-    { value: 0 }]
+import CheckBox from 'react-native-check-box'
 
 export default class termsCondition extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            isSelected: false,
+        };
+    }
     render() {
         return (
 
@@ -28,64 +30,61 @@ export default class termsCondition extends Component {
                 </View>
                 {/* heading view */}
                 <ScrollView>
-                <View style={styles.headingcontainer}>
-                    <Text style={{ color: '#3AB54A', fontSize: 15, }}>Terms & condition</Text>
+                    <View style={styles.headingcontainer}>
+                        <Text style={{ color: '#3AB54A', fontSize: 15, }}>Terms & condition</Text>
 
 
-                </View>
-                <View style={styles.textview}>
-                    <Text >Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
-                    retrum vel.Duis egestas oric et nulla faucibus ultrics.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
-                    retrum vel.Duis egestas oric et nulla faucibus ultrics.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
-                    retrum vel.Duis egestas oric et nulla faucibus ultrics.
-                    Vestibulum auctor mauris lorem, a eleifend ligula consequent eu.
+                    </View>
+                    <View style={styles.textview}>
+                        <Text >Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
+                        retrum vel.Duis egestas oric et nulla faucibus ultrics.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
+                        retrum vel.Duis egestas oric et nulla faucibus ultrics.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
+                        retrum vel.Duis egestas oric et nulla faucibus ultrics.
+                        Vestibulum auctor mauris lorem, a eleifend ligula consequent eu.
                     </Text>
-                </View>
-                <View style={styles.bullet}>
-                    <Text style={{ marginVertical: '2%', fontSize: 12}}>
-                        •	    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    </Text><Text style={{ marginVertical: '2%',fontSize: 12 }}>
-                        •	    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    </Text><Text style={{ marginVertical: '2%',fontSize: 12 }}>
-                        •	    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    </Text><Text style={{ marginVertical: '2%', fontSize: 12}}>
-                        •	    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    </Text><Text style={{ marginVertical: '2%',fontSize: 12 }}>
-                        •	    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    </View>
+                    <View style={styles.bullet}>
+                        <Text style={{ marginVertical: '2%', fontSize: 12 }}>
+                            •	    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    </Text><Text style={{ marginVertical: '2%', fontSize: 12 }}>
+                            •	    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    </Text><Text style={{ marginVertical: '2%', fontSize: 12 }}>
+                            •	    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    </Text><Text style={{ marginVertical: '2%', fontSize: 12 }}>
+                            •	    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    </Text><Text style={{ marginVertical: '2%', fontSize: 12 }}>
+                            •	    Lorem ipsum dolor sit amet, consectetur adipiscing
                     </Text>
-                </View>
-                <View style={styles.textview1}>
-                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
-                    retrum vel.Duis egestas oric et nulla faucibus ultrics.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
-                    retrum vel.Duis egestas oric et nulla faucibus ultrics.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
-                    retrum vel.Duis egestas oric et nulla faucibus ultrics.
-                    Vestibulum auctor mauris lorem, a eleifend ligula consequent eu.
+                    </View>
+                    <View style={styles.textview1}>
+                        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
+                        retrum vel.Duis egestas oric et nulla faucibus ultrics.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
+                        retrum vel.Duis egestas oric et nulla faucibus ultrics.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Aliquam porttitor dapibus nisi, vitae pulvinar lorem
+                        retrum vel.Duis egestas oric et nulla faucibus ultrics.
+                        Vestibulum auctor mauris lorem, a eleifend ligula consequent eu.
                     </Text>
-                </View>
-                <View style={{flexDirection: 'row', marginLeft: wp('5%'), marginTop: hp('2%'),}}>
-                    <RadioForm style={{ fontSize: 15,marginTop: 3, }}
-                        radio_props={radio_props}
-                        initial={0}
-                        buttonColor={'#8A8989'}
-                        buttonSize={4}
-                        borderRadius={1}
-                        buttonInnerColor={'#8A8989'}
-                        buttonOuterColor={'#38059F'}
-                        onPress={(value) => { this.setState({ value: value }) }}
-
+                    </View>
+                    <CheckBox
+                        style={{ flex: 1, padding: 0, marginLeft: 15,}}
+                        checkBoxColor={'#38059F'}
+                        onClick={() => {
+                            this.setState({
+                                isChecked: !this.state.isChecked
+                            })
+                        }}
+                        isChecked={this.state.isChecked}
+                        rightText={"Term & Condition"}
                     />
-                    <Text>Accept Term & Condition</Text>
-                </View>
                 </ScrollView>
             </View>
         );

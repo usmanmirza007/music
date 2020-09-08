@@ -1,140 +1,169 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ImageBackground,ScrollView, Image, KeyboardAvoidingView, Text, Button, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, StatusBar, ImageBackground, ScrollView, Picker, Image, KeyboardAvoidingView, Text, Button, TouchableOpacity, StyleSheet } from 'react-native';
 import Color from '../../constant/color';
 import { TextInput } from 'react-native-gesture-handler';
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import Left from 'react-native-vector-icons/AntDesign';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
+// import { CheckBox } from 'react-native-elements'
+import CheckBox from 'react-native-check-box'
 var radio_props = [
     { value: 0 },
     { value: 1 }
 ];
 
 export default class checkOut extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            type: '',
+            isSelected: false,
+            isSelected1: false,
+        };
+    }
     render() {
         return (
             <KeyboardAvoidingView style={styles.checkoutContainer}>
-                    <ScrollView>
+                <ScrollView>
 
-                <View style={styles.maincontainer}>
+                    <View style={styles.maincontainer}>
 
-                    <View style={styles.touchableopacity} >
-                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                            <Left name="left" size={20} color="#000" />
-                        </TouchableOpacity>
-                    </View>
-                    {/*second View */}
-                    <View style={styles.checkoutheading}>
-                        <Text style={styles.textcheckout}>Checkout</Text>
-
-                    </View>
-                    {/* third view  or view of name*/}
-                    <View style={styles.textinputcontainer}>
-                        <TextInput style={styles.textinput1}
-                            autoCompleteType="name"
-                            keyboardType="email-address"
-                            textContentType="emailAddress"
-                            placeholder="Name"
-                            underlineColorAndroid = {Color.greyPrimray}
-
-
-                        />
-                        <TextInput style={styles.textinput1}
-                            autoCompleteType="name"
-                            keyboardType="email-address"
-                            textContentType="emailAddress"
-                            placeholder="Last Name"
-                            underlineColorAndroid = {Color.greyPrimray}
-
-
-                        />
-                        <TextInput style={styles.textinput1}
-                            autoCompleteType="email"
-                            keyboardType="email-address"
-                            textContentType="emailAddress"
-                            placeholder="Email Address"
-                            underlineColorAndroid = {Color.greyPrimray}
-
-
-                        />
-                        <TextInput style={styles.textinput1}
-                            autoCompleteType="tel"
-                            keyboardType="name-phone-pad"
-                            textContentType="telephoneNumber"
-                            placeholder="Telephone no."
-                            underlineColorAndroid = {Color.greyPrimray}
-                            />
-                    </View>
-                    {/* View of region */}
-                    <View style={styles.regioncontainer}>
-                        {/* <Dropdown
-                            label='Country Region'
-                            data={data}
-                        /> */}
-                        <TextInput style={styles.textinput1}
-                            autoCompleteType="name"
-                            keyboardType="email-address"
-                            textContentType="emailAddress"
-                            placeholder="City"
-                            underlineColorAndroid = {Color.greyPrimray}
-
-
-                        />
-                        <TextInput style={styles.textinput1}
-                            autoCompleteType="name"
-                            keyboardType="email-address"
-                            textContentType="emailAddress"
-                            placeholder="State"
-                            underlineColorAndroid = {Color.greyPrimray}
-
-
-                        />
-                        <TextInput style={styles.textinput1}
-                            autoCompleteType="email"
-                            keyboardType="email-address"
-                            textContentType="emailAddress"
-                            placeholder="Address"
-                            underlineColorAndroid = {Color.greyPrimray}
-                        />
-
-                    </View>
-                    <View style={styles.paymentview}>
-                        <Text style={styles.paymenttext}>Payment Method</Text>
-                        <View style={styles.radiobuttonview}>
-                            <View>
-                                <Text style={styles.radiobuttontext}>CASH ON DELIVERY</Text>
-                                <Text style={styles.radiobuttontext1}>ADD CARD</Text>
-                            </View>
-                            <View style={{ marginTop: 25, marginBottom: 10 }}>
-
-                                <RadioForm style={{ fontSize: 15, }}
-                                    radio_props={radio_props}
-                                    initial={0}
-                                    buttonColor={'#8A8989'}
-                                    buttonSize={4}
-                                    borderRadius={1}
-                                    buttonInnerColor={'#8A8989'}
-                                    buttonOuterColor={'#38059F'}
-                                    onPress={(value) => { this.setState({ value: value }) }}
-
-                                />
-                            </View>
+                        <View style={styles.touchableopacity} >
+                            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                                <Left name="left" size={20} color="#000" />
+                            </TouchableOpacity>
+                        </View>
+                        {/*second View */}
+                        <View style={styles.checkoutheading}>
+                            <Text style={styles.textcheckout}>Checkout</Text>
 
                         </View>
+                        {/* third view  or view of name*/}
+                        <View style={styles.textinputcontainer}>
+                            <TextInput style={styles.textinput1}
+                                autoCompleteType="name"
+                                keyboardType="email-address"
+                                textContentType="emailAddress"
+                                placeholder="Name"
+                                underlineColorAndroid={Color.greyPrimray}
 
+
+                            />
+                            <TextInput style={styles.textinput1}
+                                autoCompleteType="name"
+                                keyboardType="email-address"
+                                textContentType="emailAddress"
+                                placeholder="Last Name"
+                                underlineColorAndroid={Color.greyPrimray}
+
+
+                            />
+                            <TextInput style={styles.textinput1}
+                                autoCompleteType="email"
+                                keyboardType="email-address"
+                                textContentType="emailAddress"
+                                placeholder="Email Address"
+                                underlineColorAndroid={Color.greyPrimray}
+
+
+                            />
+                            <TextInput style={styles.textinput1}
+                                autoCompleteType="tel"
+                                keyboardType="name-phone-pad"
+                                textContentType="telephoneNumber"
+                                placeholder="Telephone no."
+                                underlineColorAndroid={Color.greyPrimray}
+                            />
+                        </View>
+                        {/* View of region */}
+                        <View style={styles.regioncontainer}>
+                            <View style={{ borderWidth: 1, borderColor: '#fff', width: 290, marginLeft: 0 }}>
+                                <Picker style={{ height: 30, padding: 0, color: Color.greyPrimray }}
+                                    selectedValue={this.state.type}
+                                    mode="dropdown"
+                                    onValueChange={(itemValue) =>
+                                        this.setState({ type: itemValue })}>
+                                    <Picker.label label="Country Regin" />
+                                    <Picker.Item label="Karachi" value="Karachi" />
+                                    <Picker.Item label="Lahore" value="Lahore" />
+                                </Picker>
+                            </View>
+                            <TextInput style={styles.textinput1}
+                                autoCompleteType="name"
+                                keyboardType="email-address"
+                                textContentType="emailAddress"
+                                placeholder="City"
+                                underlineColorAndroid={Color.greyPrimray}
+
+
+                            />
+                            <TextInput style={styles.textinput1}
+                                autoCompleteType="name"
+                                keyboardType="email-address"
+                                textContentType="emailAddress"
+                                placeholder="State"
+                                underlineColorAndroid={Color.greyPrimray}
+
+
+                            />
+                            <TextInput style={styles.textinput1}
+                                autoCompleteType="email"
+                                keyboardType="email-address"
+                                textContentType="emailAddress"
+                                placeholder="Address"
+                                underlineColorAndroid={Color.greyPrimray}
+                            />
+
+                        </View>
+                        <View style={styles.paymentview}>
+                            <Text style={styles.paymenttext}>Payment Method</Text>
+                            <View style={styles.radiobuttonview}>
+                                <View>
+                                    <Text style={styles.radiobuttontext}>CASH ON DELIVERY</Text>
+                                    <Text style={styles.radiobuttontext1}>ADD CARD</Text>
+                                </View>
+                                <View style={{ marginTop: 25, marginBottom: 10 }}>
+                                    <RadioForm style={{ fontSize: 15, }}
+                                        radio_props={radio_props}
+                                        initial={0}
+                                        buttonColor={'#8A8989'}
+                                        buttonSize={4}
+                                        borderRadius={1}
+                                        buttonInnerColor={'#8A8989'}
+                                        buttonOuterColor={'#38059F'}
+                                        onPress={(value) => { this.setState({ value: value }) }} />
+                                </View>
+                            </View>
+                        </View>
+                        <CheckBox
+                            style={{ flex: 1, padding: 0 , }}
+                            checkBoxColor = {'#38059F'}
+                            onClick={() => {
+                                this.setState({
+                                    isChecked: !this.state.isChecked
+                                })
+                            }}
+                            isChecked={this.state.isChecked}
+                            rightText={"Send Invoice by email"}
+                        />
+                        <CheckBox
+                            style={{ flex: 1, padding: 0 }}
+                            checkBoxColor = {'#38059F'}
+                            onClick={() => {
+                                this.setState({
+                                    isChecked1: !this.state.isChecked1
+                                })
+                            }}
+                            isChecked={this.state.isChecked1}
+                            rightText={"Terms & Condition"}
+                        />
+                        <View style={styles.opacityview}>
+                            <TouchableOpacity style={styles.touchableopacity1}
+                                onPress={() => this.props.navigation.navigate('addCardDetail')}>
+                                <Text style={styles.opacitytext}>Complete Order</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                    <View style={styles.opacityview}>
-                        <TouchableOpacity style={styles.touchableopacity1}
-                            onPress={() => this.props.navigation.navigate('addCardDetail')}>
-
-                            <Text style={styles.opacitytext}>Complete Order</Text>
-
-
-                        </TouchableOpacity>
-
-                    </View>
-                </View>
                 </ScrollView>
 
             </KeyboardAvoidingView>
@@ -154,7 +183,7 @@ const styles = StyleSheet.create({
         width: wp('100%'), marginLeft: 10, marginTop: 10
     },
     maincontainer: {
-      marginHorizontal: wp('3%'),
+        marginHorizontal: wp('3%'),
     },
     checkoutheading: {
         marginLeft: 10, marginTop: 5
@@ -178,6 +207,7 @@ const styles = StyleSheet.create({
     textinput1: { marginHorizontal: wp('5%'), fontSize: 10, height: 35, },
     opacityview: {
         alignItems: 'center',
+        marginTop: hp('2%'),
         justifyContent: 'center',
     },
     touchableopacity1: {
@@ -207,6 +237,9 @@ const styles = StyleSheet.create({
     radiobuttonview: {
         flexDirection: 'row',
         justifyContent: 'space-between'
+    },
+    termCondition: {
+        flexDirection: 'row',
     },
     radiobuttontext: {
         marginTop: 20,

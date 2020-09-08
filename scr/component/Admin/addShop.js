@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ImageBackground, Image, TextInput, ScrollView, KeyboardAvoidingView, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
+import { View, StatusBar, ImageBackground, Image, Picker, TextInput, ScrollView, KeyboardAvoidingView, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
 import Color from './../../constant/color';
 import Left from 'react-native-vector-icons/MaterialIcons'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 export default class addShop extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            type: '',
+        };
+    }
     render() {
         return (
             <View style={styles.addpublishContainer}>
@@ -32,6 +37,17 @@ export default class addShop extends Component {
                             underlineColorAndroid={'grey'}
 
                         />
+                        <View style={{ borderWidth: 1, borderColor: '#fff', width: 290, marginLeft: 0 }}>
+                            <Picker style={{ height: 30, padding: 0, color: Color.greyPrimray }}
+                                selectedValue={this.state.type}
+                                mode = "dropdown"
+                                onValueChange={(itemValue) =>
+                                    this.setState({ type: itemValue })}>
+                                <Picker.label label= "Location" />
+                                <Picker.Item label="Karachi" value="Karachi" />
+                                <Picker.Item label="Lahore" value="Lahore" />
+                            </Picker>
+                        </View>
                         <TextInput style={styles.textinput}
                             autoCompleteType="name"
                             keyboardType="email-address"
@@ -40,6 +56,7 @@ export default class addShop extends Component {
                             underlineColorAndroid={'grey'}
 
                         />
+                        
                         <TextInput style={styles.textinput}
                             autoCompleteType="name"
                             keyboardType="email-address"
@@ -48,6 +65,7 @@ export default class addShop extends Component {
                             underlineColorAndroid={'grey'}
 
                         />
+
                         <TextInput style={styles.textinput}
                             autoCompleteType="name"
                             keyboardType="email-address"
@@ -56,7 +74,7 @@ export default class addShop extends Component {
                             underlineColorAndroid={'grey'}
                         />
                     </View>
-                    <View style={{ alignItems: 'center' , marginBottom: hp('5%'),}}>
+                    <View style={{ alignItems: 'center', marginBottom: hp('5%'), }}>
                         <TouchableOpacity style={styles.touchableopacity}
                             onPress={() => this.props.navigation.navigate('shop')}>
                             <Text style={{ fontWeight: 'bold', }}>SUBMIT</Text>
