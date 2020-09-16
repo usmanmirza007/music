@@ -50,11 +50,6 @@ export default class signIn extends Component {
                         onPress={() => this.props.navigation.navigate('tab')}>
                         <Text style={styles.textopacity}>CONTINUE</Text>
                     </TouchableOpacity>
-                    {/* <Text style={{}}>Connect</Text>
-                            <TouchableOpacity 
-                            onPress={() => this.props.navigation.navigate('index')} >
-
-                            </TouchableOpacity> */}
                 </View>
             </View>
 

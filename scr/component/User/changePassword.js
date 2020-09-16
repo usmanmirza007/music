@@ -11,26 +11,22 @@ export default class changePassword extends Component {
             <View style={styles.changepasswordContainer}>
                 {/*second View */}
                 <View style={styles.maincontainer}>
-
-                    <Text style={styles.changetext}>Change Password  </Text>
+                    <Text style={styles.changetext}>Change Password</Text>
                     <View style={styles.inputview}>
                         <TextInput style={{ width: '90%', }}
                             secureTextEntry
                             autoCompleteType="password"
                             placeholder="New Password"
                             underlineColorAndroid = {Color.greyPrimray}
-
                         />
                         <TextInput style={{ width: '90%', height: 50, }}
                             secureTextEntry
                             autoCompleteType="password"
                             placeholder="Confirm Password"
                             underlineColorAndroid = {Color.greyPrimray}
-
                         />
                     </View>
                 </View>
-
                 <View style={styles.opacityview}>
                     <TouchableOpacity style={styles.touchableopacity}
                         onPress={() => this.props.navigation.navigate('tab')}>
