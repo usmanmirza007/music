@@ -4,7 +4,16 @@ import Color from './../../constant/color';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
+
 export default class Welcome extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            
+        }
+    }
+    
     render() {
         return (
             <View style={styles.welcomeContainer}>
@@ -14,7 +23,7 @@ export default class Welcome extends Component {
                         <View style={styles.imageview2}>
                             <Image style={styles.icon}
                                 source={require('./../../image/music.png')} />
-                            <Text style={styles.textview}><Text style={{fontWeight: '700'}} >Welcome </Text>{'\n'}to Eufonia</Text>
+                            <Text style={styles.textview}><Text style={{ fontWeight: '700' }} >Welcome </Text>{'\n'}to Eufonia</Text>
                         </View>
                         <View style={styles.view2}>
                             <Text style={styles.textview2}>Add some tagline here if require</Text>
@@ -28,7 +37,7 @@ export default class Welcome extends Component {
                 <View style={styles.viewopicity}>
                     <TouchableOpacity style={styles.touchablepacity1}
                         onPress={() => this.props.navigation.navigate('logIn')}>
-                            <Text style={{ textAlign: 'center' }}>SIGN IN</Text>
+                        <Text style={{ textAlign: 'center' }}>SIGN IN</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.touchablepacity2}
                         onPress={() => this.props.navigation.navigate('createAccount')}>
@@ -44,7 +53,7 @@ export default class Welcome extends Component {
 const styles = StyleSheet.create({
     welcomeContainer: {
         flex: 1,
-        backgroundColor:Color.homebackroundColor
+        backgroundColor: Color.homebackroundColor
     },
     maincontainer: {
         flex: 1,

@@ -36,6 +36,7 @@ import user from './../component/Admin/user';
 import comment from './../component/Admin/comment';
 import publish from './../component/Admin/publish';
 import product from './../component/Admin/product';
+import facebookLogin from './../component/User/facebookLogin';
 import composers from './../component/Admin/composers';
 
 const Route =  createStackNavigator({
@@ -47,6 +48,12 @@ const Route =  createStackNavigator({
     },
     welcome: {
         screen: welcome,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    facebookLogin: {
+        screen: facebookLogin,
         navigationOptions: {
             headerShown: false
         },
