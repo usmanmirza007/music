@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ImageBackground, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
+import { View, StatusBar, ImageBackground, ScrollView, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 import Color from './../../constant/color';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
@@ -10,42 +10,41 @@ export default class Welcome extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            
+
         }
     }
-    
+
     render() {
         return (
             <View style={styles.welcomeContainer}>
-                <View style={styles.maincontainer}>
-                    <ImageBackground style={styles.imagebakground}
-                        source={require('./../../image/back.png')}>
-                        <View style={styles.imageview2}>
-                            <Image style={styles.icon}
-                                source={require('./../../image/music.png')} />
-                            <Text style={styles.textview}><Text style={{ fontWeight: '700' }} >Welcome </Text>{'\n'}to Eufonia</Text>
-                        </View>
-                        <View style={styles.view2}>
-                            <Text style={styles.textview2}>Add some tagline here if require</Text>
-                        </View>
-                    </ImageBackground>
-                </View>
-                <View style={styles.imageview3}>
-                    <Image style={styles.imagelogo}
-                        source={require('./../../image/Logo1.png')}></Image>
-                </View>
-                <View style={styles.viewopicity}>
-                    <TouchableOpacity style={styles.touchablepacity1}
-                        onPress={() => this.props.navigation.navigate('logIn')}>
-                        <Text style={{ textAlign: 'center' }}>SIGN IN</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.touchablepacity2}
-                        onPress={() => this.props.navigation.navigate('createAccount')}>
-                        <Text style={{ textAlign: 'center' }}>SIGN UP</Text>
-                    </TouchableOpacity>
-
-                </View>
-                {/* ############################## text here ########################################## */}
+                <ScrollView>
+                    <View style={styles.maincontainer}>
+                        <ImageBackground style={styles.imagebakground}
+                            source={require('./../../image/back.png')} resizeMode={'stretch'} >
+                            <View style={styles.imageview2}>
+                                <Image style={styles.icon}
+                                    source={require('./../../image/music.png')} />
+                                <Text style={styles.textview}><Text style={{ fontWeight: '700' }} >Welcome </Text>{'\n'}to Eufonia</Text>
+                            </View>
+                                <Text style={styles.textview2}>Add some tagline here if require</Text>
+                           
+                        </ImageBackground>
+                    </View>
+                    <View style={styles.imageview3}>
+                        <Image style={styles.imagelogo} resizeMode='stretch'
+                            source={require('./../../image/Logo1.png')}></Image>
+                    </View>
+                    <View style={{ marginVertical: '20%', }}>
+                        <TouchableOpacity style={styles.signinView}
+                            onPress={() => this.props.navigation.navigate('logIn')}>
+                            <Text style={styles.textopacity}>SIGN IN</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.signupView}
+                            onPress={() => this.props.navigation.navigate('createAccount')}>
+                            <Text style={styles.textopacity}>SIGN UP</Text>
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
             </View>
         );
     }
@@ -55,12 +54,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Color.homebackroundColor
     },
-    maincontainer: {
-        flex: 1,
-        width: wp('100%'),
-    },
     imagebakground: {
-        height: hp('45%')
+        height: hp('100%')
     },
     imageview2: {
         flexDirection: 'row',
@@ -72,47 +67,40 @@ const styles = StyleSheet.create({
         marginLeft: '10%',
         textAlign: 'center',
     },
-    view2: {
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     textview2: {
         color: '#F1F1F1',
         fontSize: 15,
+        alignSelf: 'center',
+        marginTop: 15,
     },
-
-    touchablepacity1: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#3AB54A',
-        borderRadius: 5,
-        height: hp('8%'),
-        bottom: 10,
-        width: wp('90%'),
-    },
-    touchablepacity2: {
+    signupView: {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#A1A1A1',
         borderRadius: 5,
-        height: hp('8%'), bottom: 0,
-        width: wp('90%'),
+        height: 50,
+        marginHorizontal: '5%',
     },
     imageview3: {
-        flex: .7,
         alignItems: 'center',
         justifyContent: 'center'
     },
     imagelogo: {
-        resizeMode: 'center',
-        height: hp('35%'),
-    },
-    viewopicity: {
-        alignItems: 'center',
-        marginBottom: 10
+        height: 150,
+        width: 150
+
     },
     icon: {
         marginTop: 10,
         marginLeft: 20
-    }
+    },
+    signinView: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#3AB54A',
+        borderRadius: 5,
+        height: 50,
+        marginHorizontal: '5%',
+        marginBottom: 10,
+    },
 })

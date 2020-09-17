@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,TextInput, Image, ImageBackground, TouchableOpacity, } from 'react-native';
+import { StyleSheet, Text, View,TextInput, ScrollView, Image, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import EnIcon from 'react-native-vector-icons/MaterialIcons'
 import Color from './../../constant/color';
@@ -142,20 +142,10 @@ export default class selectCategory extends React.Component {
                                 () => this.props.navigation.navigate('mainScreen')} />
                     </View>
                 </View>
+                <ScrollView>
                 <View style={styles.mainView}>
                     <Text style={styles.cooked}>Select your preferred {'\n'}category</Text>
                     <Text style={styles.atleast}>Select atleast 2 categories</Text>
-                    {/* {
-                        item.map((item, index) => {
-                            return (
-                                <TouchableOpacity style={[styles.mainViewCategory, { backgroundColor: check ? Color.primray: '#fff' }]}
-                                    onPress={() => { this.setState({}) }}>
-                                        <Text style={styles.categoryName}>{item.name}</Text>
-                                        <Image source={item.image} style={styles.check} />
-                                </TouchableOpacity>
-                            )
-                        })
-                    } */}
                     <TouchableOpacity style={[styles.mainViewCategory, {
                         backgroundColor: countCheck.count1 === 1 ? Color.primray : '#fff',
                         borderColor: countCheck.count1 === 1 ? Color.primray : Color.greyPrimray,
@@ -193,6 +183,7 @@ export default class selectCategory extends React.Component {
                         <Text style={styles.buttonTextOffer}>CONTINUE</Text>
                     </TouchableOpacity>}
                 </View>
+                </ScrollView>
             </View>
 
         );
@@ -222,7 +213,7 @@ const styles = StyleSheet.create({
         backgroundColor: Color.primray,
         borderRadius: 10,
         height: hp('10%'),
-        marginTop: hp('5%'),
+        marginVertical: hp('5%'),
         justifyContent: 'center',
 
     },
@@ -246,7 +237,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 10,
         borderWidth: 2,
-        height: hp('10%'),
+        height: 50,
         borderRadius: 20,
         marginBottom: hp('2%'),
     },
@@ -262,7 +253,7 @@ const styles = StyleSheet.create({
         marginLeft: wp('5%'),
     },
     check: {
-        marginRight: wp('10%'),
+        marginRight: wp('3%'),
         width: 30,
         height: 30
     }

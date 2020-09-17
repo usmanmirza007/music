@@ -43,8 +43,8 @@ export default class location extends React.Component {
         const { longitude, latitude } = this.state
         return (
             <View style={styles.container}>
-                <View style={{ height: hp('9%'), }}>
-                    <View style={{ flexDirection: 'row', marginLeft: wp('75%'), marginTop: hp('2%'), }}>
+                <View style={{ height: hp('9%'), alignItems: 'flex-end', marginRight: '5%', }}>
+                    <View style={{ flexDirection: 'row', marginTop: hp('2%'), }}>
                         <AntIcon style={{}} name={'hearto'} size={24} color="#000"
                             onPress={
                                 () => this.props.navigation.navigate('#')} />

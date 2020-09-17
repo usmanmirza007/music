@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, FlatList, ImageBackground, TouchableOpacity, } from 'react-native';
+import { StyleSheet, Text, View, Image,Dimensions, ScrollView, FlatList, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 // import EnIcon from 'react-native-vector-icons/FontAwesome'
 import AntIcon from 'react-native-vector-icons/AntDesign'
 import Color from './../../constant/color';
 import TabIcon from 'react-native-vector-icons/FontAwesome'
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default class home extends React.Component {
     constructor(props) {
@@ -25,14 +27,19 @@ export default class home extends React.Component {
             ],
             imagesMost: [
                 { image: require('./../../image/images2.png') },
-                { image: require('./../../image/download.png') },
-                { image: require('./../../image/download.png') },
-                { image: require('./../../image/download.png') },
-                { image: require('./../../image/download.png') },
-                { image: require('./../../image/download.png') },
-            ]
-
+                { image: require('./../../image/images2.png') },
+                { image: require('./../../image/images2.png') },
+                { image: require('./../../image/images2.png') },
+                { image: require('./../../image/images2.png') },
+                { image: require('./../../image/images2.png') },
+                { image: require('./../../image/images2.png') },
+                { image: require('./../../image/images2.png') },
+                { image: require('./../../image/images2.png') },
+            ],
+           name: this.props.navigation.getParam('NAME'),
+           image: this.props.navigation.getParam('IMAGE'),
         };
+        console.log( "NAME", this.state.name);
     }
     static navigationOptions = {
         tabBarIcon: ({ tintColor }) => (
@@ -66,12 +73,12 @@ export default class home extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={{ height: hp('9%'), }}>
-                    <View style={{ flexDirection: 'row', marginLeft: wp('75%'), marginTop: hp('2%'), }}>
+                <View style={{ height: hp('9%'),  alignItems: 'flex-end',}}>
+                    <View style={{ flexDirection: 'row', marginTop: hp('2%'), }}>
                         <AntIcon style={{}} name={'hearto'} size={24} color="#000"
                             onPress={
                                 () => this.props.navigation.navigate('#')} />
-                        <Image source={require('./../../image/cart.png')} style={{ width: 20, marginLeft: wp('4%'), }} />
+                        <Image source={require('./../../image/cart.png')} style={{ width: 20, marginHorizontal: wp('4%'), }} />
                     </View>
                 </View>
                 <ScrollView>
@@ -110,13 +117,13 @@ export default class home extends React.Component {
                             <ScrollView >
                                 <Image source={require('./../../image/images2.png')} style={styles.imageTop} resizeMode='stretch' />
                                 <View style={styles.imageView}>
-                                    <View >
-                                        <Image source={require('./../../image/download.png')} style={styles.imageFirst} resizeMode='stretch' />
-                                        <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
+                                    <View style={{flexDirection: 'row',}}>
+                                        <Image source={require('./../../image/images2.png')} style={styles.demo} resizeMode='stretch' />
+                                        <Image source={require('./../../image/images2.png')} style={styles.demo} resizeMode='stretch' />
                                     </View>
-                                    <View>
-                                        <Image source={require('./../../image/download.png')} style={styles.imageFirst} resizeMode='stretch' />
-                                        <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
+                                    <View style={{flexDirection: 'row',}}>
+                                        <Image source={require('./../../image/images2.png')} style={styles.demo} resizeMode='stretch' />
+                                        <Image source={require('./../../image/images2.png')} style={styles.demo} resizeMode='stretch' />
                                     </View>
                                 </View>
                             </ScrollView>
@@ -188,8 +195,9 @@ const styles = StyleSheet.create({
     mainView: {
         marginHorizontal: wp('5%'),
     },
-    imageFirst: { width: 138, height: 100, marginRight: 10, marginBottom: 10, borderRadius: 5 },
+    imageFirst: { width: 145, height: 100, marginRight: 10, marginBottom: 10, borderRadius: 5 },
+    demo: {width: windowWidth - 200, height: 100, marginRight: 10, marginBottom: 10, borderRadius: 5 },
     // imageSecond: { width: 138, height: 100, marginRight: 10, marginRight: 10, borderRadius: 5 },
-    imageTop: { width: 300, height: 150, marginRight: 10, borderRadius: 5 },
+    imageTop: { width: '100%', height: 150,marginBottom: 10, marginRight: 10, borderRadius: 5 },
     // imageView: { flexDirection: 'row', flexWrap: 'nowrap', marginTop: 10, }
 });

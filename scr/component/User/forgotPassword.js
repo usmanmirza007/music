@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ImageBackground, Image, Text, Button, Modal, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, StatusBar, ImageBackground, ScrollView, Image, Text, Button, Modal, TouchableOpacity, StyleSheet } from 'react-native';
 import Color from './../../constant/color';
 import { TextInput } from 'react-native-gesture-handler';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -17,11 +17,12 @@ export default class forgotPassword extends Component {
             <Modal
                 animationType="slide"
                 transparent={true}
+                // style={{justifyContent: 'center',}}
                 visible={this.state.showMe}>
                 <View style={{ flex: 1 }}>
                     {/* <View style={{ flex: 0 }}></View> */}
-                    <View style={[{ marginHorizontal: wp('5%'), alignItems: 'center', justifyContent: 'center', borderRadius: 10, height: hp('30%'), backgroundColor: Color.white, marginTop: hp('25%'), },shadow]}>
-                        <Text style={{marginHorizontal: wp('5%'), color: Color.black, marginBottom: hp('4%'),}}>Resetting password link has been sent to your email</Text>
+                    <View style={[{ marginHorizontal: wp('5%'), alignItems: 'center', justifyContent: 'center', borderRadius: 10, height: hp('30%'), backgroundColor: Color.white, marginTop: '50%',  }, shadow]}>
+                        <Text style={{ marginHorizontal: wp('5%'), color: Color.black, marginBottom: hp('4%'), }}>Resetting password link has been sent to your email</Text>
                         <TouchableOpacity onPress={() => { this.setState({ showMe: false }, () => { this.props.navigation.navigate('changePassword') }) }} style={styles.checkoutView}>
                             <Text style={styles.checkout}>Next</Text>
                         </TouchableOpacity>
@@ -34,37 +35,35 @@ export default class forgotPassword extends Component {
         return (
 
             <View style={styles.forgotContainer}>
+                <ScrollView>
+                    <View style={{ flex: 1 }}>
+                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                            <IcIcon style={{ marginLeft: 0, }} name={'keyboard-arrow-left'} size={40} color="#000"
+                                onPress={() => this.props.navigation.goBack()} />
+                        </TouchableOpacity>
+                        <View style={styles.forgotview}>
+                            <Text style={styles.forgottext1}>Forgot Password</Text>
+                            <Text style={styles.forgottext2}>Enter your email address</Text>
+                        </View>
+                        <TextInput style={{ marginHorizontal: '5%', }}
+                            autoCompleteType="email"
+                            keyboardType="email-address"
+                            textContentType="emailAddress"
+                            autoCapitalize='none'
+                            placeholder="Email"
+                            underlineColorAndroid={Color.greyPrimray}
+                        />
+                    </View>
+                </ScrollView>
 
-                <View style={styles.maincontainer}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                        <IcIcon style={{ marginLeft: -10, }} name={'keyboard-arrow-left'} size={40} color="#000"
-                            onPress={
-                                () => this.props.navigation.goBack()} />
-                    </TouchableOpacity>
-                </View>
-                {/*second View */}
-                <View style={styles.forgotview}>
-                    <Text style={styles.forgottext1}>Forgot Password</Text>
-                    <Text style={styles.forgottext2}>Enter your email address</Text>
-                </View>
-                <View style={styles.inputview}>
-                    <TextInput style={styles.textinput}
-                        autoCompleteType="email"
-                        keyboardType="email-address"
-                        textContentType="emailAddress"
-                        placeholder="Email"
-                        underlineColorAndroid = {Color.greyPrimray}
-                    />
-                </View>
-                <View style={styles.opacityview}>
-                    <TouchableOpacity style={styles.touchableopacity}
+                <View style={{}}>
+                    <TouchableOpacity style={styles.signupView}
                         onPress={() => { this.setState({ showMe: true }) }}>
-                        <Text style={styles.opacitytext}>CONTINUE</Text>
+                        <Text style={styles.textopacity}>CONTINUE</Text>
                         {this.renderModel()}
 
                     </TouchableOpacity>
                 </View>
-
             </View>
         );
 
@@ -85,20 +84,17 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Color.homebackroundColor,
     },
-    maincontainer: {
-        flex: .2,
-        width: wp('100%'),
-        marginLeft: 20
-    },
-
-    backicon: {
-        width: wp('3%'),
-        height: hp('3'),
-        marginTop: 20,
+    signupView: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: Color.accsent,
+        borderRadius: 5,
+        height: 50,
+        marginHorizontal: '5%',
+        marginBottom: '5%',
     },
     forgotview: {
-        flex: .3,
-        marginLeft: 20
+        marginLeft: '5%'
     },
     checkoutView: {
         backgroundColor: Color.green,
@@ -119,29 +115,4 @@ const styles = StyleSheet.create({
         fontSize: 11,
         marginTop: 10,
     },
-    inputview: {
-        flex: .4,
-        alignItems: 'center'
-    },
-    textinput: {
-        width: '90%',
-        height: hp('10%'),
-    },
-    opacityview: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    touchableopacity: {
-        justifyContent: 'center',
-        borderRadius: 5,
-        marginTop: '50%',
-        backgroundColor: '#3AB54A',
-        height: hp('8%'),
-        width: wp('90%'),
-    },
-    opacitytext: {
-        textAlign: 'center',
-        fontSize: 20
-    }
 })

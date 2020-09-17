@@ -1,113 +1,104 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ImageBackground, Image, KeyboardAvoidingView, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
+import { View, StatusBar, ScrollView, ImageBackground, Dimensions, Image, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import Color from './../../constant/color';
 import { TextInput } from 'react-native-gesture-handler';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import IcIcon from 'react-native-vector-icons/MaterialIcons'
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
-export default class signUp extends Component {
+export default class signIn extends Component {
 
     render() {
         return (
-            <KeyboardAvoidingView style={styles.signupContainer}>
-                <View>
 
-                    <View style={styles.maincontainer}>
-                                <IcIcon style={{ marginLeft: -10, }} name={'keyboard-arrow-left'} size={40} color="#000"
-                                    onPress={
-                                        () => this.props.navigation.goBack()} />
-                    </View>
-                    {/*second View */}
+            <View style={styles.signinContainer}>
+                <View style={{ marginLeft: '1%', }}>
+                    <IcIcon style={{}} name={'keyboard-arrow-left'} size={40} color="#000"
+                        onPress={() => this.props.navigation.goBack()} />
+                </View>
+                <ScrollView>
 
-                    <View>
+                    <View style={styles.helloview}>
 
-                        <Text style={styles.hellotext}>Hello there,{'\n'}SIGN UP  </Text>
-                        <View style={styles.inputview}>
-                            <TextInput style={styles.textinput}
-                                autoCompleteType="name"
-                                keyboardType="email-address"
-                                textContentType="emailAddress"
+                        <Text style={styles.hellotext}>Hello there,{'\n'}SIGN IN  </Text>
+                        <View style={{ marginHorizontal: '5%', }}>
+                            <TextInput style={{}}
                                 placeholder="Name"
-                                underlineColorAndroid = {Color.greyPrimray}
-
+                                underlineColorAndroid={Color.greyPrimray}
                             />
-                            <TextInput style={styles.textinput1}
-                                autoCompleteType="name"
-                                keyboardType="email-address"
-                                textContentType="emailAddress"
-                                placeholder="Surname"
-                                underlineColorAndroid = {Color.greyPrimray}
-
-
+                            <TextInput style={{}}
+                                placeholder="Surename"
+                                underlineColorAndroid={Color.greyPrimray}
                             />
-                            <TextInput style={styles.textinput2}
+                            <TextInput style={{}}
                                 autoCompleteType="email"
+                                autoCapitalize='none'
                                 keyboardType="email-address"
-                                textContentType="emailAddress"
                                 placeholder="Email"
-                                underlineColorAndroid = {Color.greyPrimray}
-
-
+                                underlineColorAndroid={Color.greyPrimray}
                             />
-                            <TextInput style={styles.textinput3}
+                            <TextInput style={{}}
                                 secureTextEntry
                                 autoCompleteType="password"
                                 placeholder="Password"
-                                underlineColorAndroid = {Color.greyPrimray}
-
+                                underlineColorAndroid={Color.greyPrimray}
                             />
                         </View>
-                    </View>
-
-                    <View style={{ alignItems: 'center' }}>
-                        <TouchableOpacity style={styles.touchableopacity}
-                            onPress={() => this.props.navigation.navigate('selectCategory')}>
-                            <Text style={{ fontWeight: 'bold', textAlign: 'center' }}>CONTINUE</Text>
-                        </TouchableOpacity>
 
                     </View>
+                </ScrollView>
+                <View style={{ marginVertical: '2%', }}>
+                    <TouchableOpacity style={styles.touchableopacity}
+                        onPress={() => this.props.navigation.navigate('selectCategory')}>
+                        <Text style={styles.textopacity}>CONTINUE</Text>
+                    </TouchableOpacity>
                 </View>
-            </KeyboardAvoidingView>
+
+
+            </View>
+
         );
 
     }
 }
 const styles = StyleSheet.create({
-    signupContainer: {
+    signinContainer: {
         flex: 1,
         backgroundColor: Color.homebackroundColor,
     },
-    maincontainer: {
-        width: wp('100%'),
-        height: hp('10%'),
-        marginLeft: 20,
-    },
-    backicon: {
-        width: wp('3%'),
-        height: hp('3'),
-        marginTop: 20,
+    helloview: {
+        flex: 1
     },
     hellotext: {
-        marginLeft: 20,
-        color: 'green',
-        fontSize: 25,
-        fontWeight: 'normal'
+        marginLeft: '5%',
+        color: Color.primray,
+        fontSize: 15,
     },
-    inputview: {
-        justifyContent: "center",
-        alignItems: 'center'
+    textinput1: {
+        marginTop: 20
     },
-    textinput: { width: wp('90%'), height: hp('8%') },
-    textinput1: { width: wp('90%'), height: hp('8%') },
-    textinput2: { width: wp('90%'), height: hp('8%') },
-    textinput3: { width: wp('90%'), height: hp('8%') },
-
+    forgetview: {
+        alignItems: 'flex-end',
+        marginRight: '5%',
+    },
+    textforget: {
+        color: '#55D4FF',
+        fontSize: 15,
+        fontWeight: 'bold',
+        textDecorationLine: 'underline',
+    },
     touchableopacity: {
-        marginTop: '50%',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#3AB54A',
-        borderRadius: 5, height: hp('7%'),
-        width: '90%',
+        borderRadius: 5,
+        height: 50,
+        marginHorizontal: '5%',
+    },
+    textopacity: {
+        fontWeight: 'bold',
+        textAlign: 'center'
     }
+
 })

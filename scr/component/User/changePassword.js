@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ImageBackground, Image, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StatusBar, ImageBackground, Image, ScrollView, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import Color from './../../constant/color';
 import { TextInput } from 'react-native-gesture-handler';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -10,29 +10,31 @@ export default class changePassword extends Component {
         return (
             <View style={styles.changepasswordContainer}>
                 {/*second View */}
-                <View style={styles.maincontainer}>
-                    <Text style={styles.changetext}>Change Password</Text>
-                    <View style={styles.inputview}>
-                        <TextInput style={{ width: '90%', }}
-                            secureTextEntry
-                            autoCompleteType="password"
-                            placeholder="New Password"
-                            underlineColorAndroid = {Color.greyPrimray}
-                        />
-                        <TextInput style={{ width: '90%', height: 50, }}
-                            secureTextEntry
-                            autoCompleteType="password"
-                            placeholder="Confirm Password"
-                            underlineColorAndroid = {Color.greyPrimray}
-                        />
+                    <View style={styles.maincontainer}>
+                <ScrollView>
+
+                        <Text style={styles.changetext}>Change Password</Text>
+                        <View style={styles.inputview}>
+                            <TextInput style={{}}
+                                secureTextEntry
+                                autoCompleteType="password"
+                                placeholder="New Password"
+                                underlineColorAndroid={Color.greyPrimray}
+                            />
+                            <TextInput style={{ height: 50, }}
+                                secureTextEntry
+                                autoCompleteType="password"
+                                placeholder="Confirm Password"
+                                underlineColorAndroid={Color.greyPrimray}
+                            />
+                        </View>
+                </ScrollView>
+
                     </View>
-                </View>
-                <View style={styles.opacityview}>
                     <TouchableOpacity style={styles.touchableopacity}
                         onPress={() => this.props.navigation.navigate('tab')}>
-                        <Text style={styles.opacitytext}>SAVE</Text>
+                        <Text style={styles.textopacity}>SAVE</Text>
                     </TouchableOpacity>
-                </View>
             </View>
 
         );
@@ -56,8 +58,7 @@ const styles = StyleSheet.create({
     },
     inputview: {
         marginTop: 30,
-        justifyContent: "center",
-        alignItems: 'center'
+        marginHorizontal: '5%',
     },
     opacityview: {
         marginBottom: 20,
@@ -66,10 +67,11 @@ const styles = StyleSheet.create({
     touchableopacity: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#3AB54A',
+        backgroundColor: Color.accsent,
         borderRadius: 5,
-        height: hp('7%'),
-        width: '90%',
+        height: 50,
+        marginHorizontal: '5%',
+        marginBottom: 20,
     },
     opacitytext: {
         fontWeight: 'bold',

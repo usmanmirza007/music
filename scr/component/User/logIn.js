@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ImageBackground, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
+import { View, StatusBar, ImageBackground, ScrollView, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 import Color from './../../constant/color';
 import { TextInput } from 'react-native-gesture-handler';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -18,9 +18,9 @@ import {
 } from '@react-native-community/google-signin';
 GoogleSignin.configure({
     offlineAccess: false,
-        // webClientId:'999697635442-kbe7rblrigie09a05mctkurh9p4knj55.apps.googleusercontent.com',
-        androidClientId: '999697635442-kbe7rblrigie09a05mctkurh9p4knj55.apps.googleusercontent.com',
-        scopes: ['profile', 'email']
+    // webClientId:'999697635442-kbe7rblrigie09a05mctkurh9p4knj55.apps.googleusercontent.com',
+    androidClientId: '999697635442-kbe7rblrigie09a05mctkurh9p4knj55.apps.googleusercontent.com',
+    scopes: ['profile', 'email']
     // scopes: ['https://www.googleapis.com/auth/drive.readonly'], // what API you want to access on behalf of the user, default is email and profile
     // webClientId: '999697635442-kbe7rblrigie09a05mctkurh9p4knj55.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
     // offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
@@ -42,6 +42,10 @@ export default class logIn extends Component {
             fName: '',
             lName: '',
             email: '',
+
+            gName: '',
+            gEmail: '',
+            gPhoto: ''
         };
     }
 
@@ -142,12 +146,18 @@ export default class logIn extends Component {
             console.log("login");
             await GoogleSignin.hasPlayServices();
             const userInfo = await GoogleSignin.signIn();
-            console.log("info", userInfo);
+            console.log("info", userInfo.user.email);
+            const name = userInfo.user.name
+            const email = userInfo.user.email
+            const image = userInfo.user.photo
             this.setState({
-                userGoogleInfo: userInfo,
+                // userGoogleInfo: userInfo,
+                gName: name,
+                gEmail: email,
+                gPhoto: image,
                 loaded: true
             });
-            {this.props.navigation.navigate('tab')}
+            { this.props.navigation.navigate('tab', { NAME: this.state.gName, IMAGE: this.state.gPhoto }) }
 
         } catch (error) {
             // console.log("err",error);
@@ -166,11 +176,10 @@ export default class logIn extends Component {
         const { fName, lName, email } = this.state
         return (
             <View style={styles.loginContainer}>
-
-                <View style={styles.maincontainer}>
-                    <ImageBackground style={styles.imagebackground} source={require('./../../image/back.png')}>
+                <ScrollView>
+                    <ImageBackground style={styles.imagebackground} source={require('./../../image/back.png')} resizeMode={'stretch'}>
                         <View style={styles.backopicity}>
-                            <IcIcon style={{ marginLeft: -10, }} name={'keyboard-arrow-left'} size={40} color="#000"
+                            <IcIcon style={{ marginLeft: 0, }} name={'keyboard-arrow-left'} size={40} color="#000"
                                 onPress={() => this.props.navigation.goBack()} />
                         </View>
                         <View style={styles.viewiconmusic}>
@@ -181,62 +190,48 @@ export default class logIn extends Component {
                             <Text style={styles.logintext}>Login</Text>
                         </View>
                     </ImageBackground>
-                </View>
-                <View style={{ alignItems: 'center', marginTop: 40, }}>
-                    <LoginButton
-                        onLoginFinished={
-                            (error, result) => {
-                                if (error) {
-                                    console.log("login has error: " + result.error);
-                                } else if (result.isCancelled) {
-                                    console.log("login is cancelled.");
-                                } else {
-                                    console.log('login');
-                                    AccessToken.getCurrentAccessToken().then(
-                                        (data) => {
-                                            console.log( 'data', data.accessToken.toString())
-                                            const userdata = data.accessToken.toString()
-                                            this.initUser(userdata)
-                                        }
-                                    )
+                    <View style={{ alignItems: 'center', marginTop: 40, }}>
+                        <LoginButton
+                            onLoginFinished={
+                                (error, result) => {
+                                    if (error) {
+                                        console.log("login has error: " + result.error);
+                                    } else if (result.isCancelled) {
+                                        console.log("login is cancelled.");
+                                    } else {
+                                        console.log('login');
+                                        AccessToken.getCurrentAccessToken().then(
+                                            (data) => {
+                                                console.log('data', data.accessToken.toString())
+                                                const userdata = data.accessToken.toString()
+                                                this.initUser(userdata)
+                                            }
+                                        )
+                                    }
+                                    { this.props.navigation.navigate('tab') }
                                 }
-                            {this.props.navigation.navigate('tab')}
                             }
-                        }
-                        onLogoutFinished={() => console.log("logout.")} />
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    <Text style={{ marginLeft: 0, }}>{fName}</Text>
-                    <Text style={{ marginLeft: 5, }}>{lName}</Text>
-                </View>
-                <Text style={{ marginLeft: 0, }}>{email}</Text>
+                            onLogoutFinished={() => console.log("logout.")} />
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ marginLeft: 0, }}>{fName}</Text>
+                        <Text style={{ marginLeft: 5, }}>{lName}</Text>
+                    </View>
+                    <Text style={{ marginLeft: 0, }}>{email}</Text>
 
-                {/* ##################### google login #################### */}
-                <View style={{alignItems: 'center'}}>
-                    <GoogleSigninButton
-                        style={{ width: 192, height: 48 }}
-                        size={GoogleSigninButton.Size.Wide}
-                        color={GoogleSigninButton.Color.Dark}
-                        onPress={this.googleSignIn}
-                    />
-                </View>
-                {this.state.loaded ?
-                    <View>
-                        <Text>{this.state.userGoogleInfo.name}</Text>
-                        <Text>{this.state.userGoogleInfo.user.name}</Text>
-                        <Text>{this.state.userGoogleInfo.user.email}</Text>
-                        <Text>{this.state.userGoogleInfo.email}</Text>
-                        <Image source={{ uri: this.state.userGoogleInfo.user.photo }} />
-                    </View> :
-                    <Text>Not Signied</Text>
-                }
-                <View style={styles.bottomview}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('signIn')}>
+                    {/* ##################### google login #################### */}
+                    <View style={{ alignItems: 'center' }}>
+                        <GoogleSigninButton
+                            style={{ width: 192, height: 48 }}
+                            size={GoogleSigninButton.Size.Wide}
+                            color={GoogleSigninButton.Color.Dark}
+                            onPress={this.googleSignIn}
+                        />
+                    </View>
+                    <TouchableOpacity style={styles.bottomview} onPress={() => this.props.navigation.navigate('signIn')}>
                         <Text style={styles.opicitytext2}>or Login with via Email Address</Text>
                     </TouchableOpacity>
-                </View>
-
+                </ScrollView>
             </View>
         );
     }
@@ -246,20 +241,11 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Color.homebackroundColor,
     },
-    maincontainer:
-    {
-        // flex: 1,
-    },
     imagebackground: {
-        height: hp('45%'),
+        height: hp('100%'),
     },
     backopicity: {
-        marginLeft: 20,
-    },
-    backicon: {
-        width: wp('3%'),
-        height: hp('3%'),
-        marginTop: 20,
+        marginLeft: '5%',
     },
     viewiconmusic: {
         flexDirection: 'row',
@@ -281,45 +267,10 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold'
     },
-    opicityview: {
-        alignItems: 'center',
-        bottom: '20%'
-    },
-    opicityview1: {
-        height: hp('5%'),
-        width: wp('20%'),
-    },
-    touchableopacity1: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#C7C7C7',
-        borderRadius: 5,
-        height: hp('8%'),
-        bottom: 30,
-        width: wp('90%'),
-    },
-    opicitytext: {
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginTop: 5,
-
-    },
-    touchableopacity2: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#C7C7C7',
-        borderRadius: 5,
-        height: hp('8%'),
-        width: wp('90%'),
-    },
-    opicitytext1: {
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
     bottomview: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 50,
+        marginVertical: 50,
 
     },
     opicitytext2: {

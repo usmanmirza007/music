@@ -77,8 +77,8 @@ export default class checkOut extends Component {
                         </View>
                         {/* View of region */}
                         <View style={styles.regioncontainer}>
-                            <View style={{ borderWidth: 1, borderColor: '#fff', width: 290, marginLeft: 0 }}>
-                                <Picker style={{ height: 30, padding: 0, color: Color.greyPrimray }}
+                            <View style={{  borderColor: Color.greyPrimray,marginLeft: 0 }}>
+                                <Picker style={{ height: 30, marginLeft: 20, color: Color.greyPrimray }}
                                     selectedValue={this.state.type}
                                     mode="dropdown"
                                     onValueChange={(itemValue) =>
@@ -157,12 +157,10 @@ export default class checkOut extends Component {
                             isChecked={this.state.isChecked1}
                             rightText={"Terms & Condition"}
                         />
-                        <View style={styles.opacityview}>
                             <TouchableOpacity style={styles.touchableopacity1}
                                 onPress={() => this.props.navigation.navigate('addCardDetail')}>
                                 <Text style={styles.opacitytext}>Complete Order</Text>
                             </TouchableOpacity>
-                        </View>
                     </View>
                 </ScrollView>
 
@@ -180,13 +178,13 @@ const styles = StyleSheet.create({
 
     },
     touchableopacity: {
-        width: wp('100%'), marginLeft: 10, marginTop: 10
+        width: wp('100%'), marginLeft: 0, marginTop: 10
     },
     maincontainer: {
         marginHorizontal: wp('3%'),
     },
     checkoutheading: {
-        marginLeft: 10, marginTop: 5
+        marginLeft: '1%', marginTop: 5
     },
     textinputcontainer: {
         marginTop: 10,
@@ -205,17 +203,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     textinput1: { marginHorizontal: wp('5%'), fontSize: 10, height: 35, },
-    opacityview: {
-        alignItems: 'center',
-        marginTop: hp('2%'),
-        justifyContent: 'center',
-    },
     touchableopacity1: {
+        alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 5,
         backgroundColor: '#3AB54A',
-        height: 40,
-        width: '97%',
+        borderRadius: 5,
+        height: 50,
+        marginHorizontal: '0%',
+        marginVertical: 10,
     },
     opacitytext: {
         textAlign: 'center',

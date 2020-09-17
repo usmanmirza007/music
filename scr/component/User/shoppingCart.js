@@ -40,69 +40,45 @@ export default class shoppingCart extends React.Component {
                         </View>
                         <View style={{ marginTop: hp('2%'), }}>
                             <AntIcon style={{}} name={'hearto'} size={26} color="#000"
-                                // onPress={() => this.props.navigation.openDrawer()}
-                                 />
+                            // onPress={() => this.props.navigation.openDrawer()}
+                            />
                         </View>
                     </View>
                 </View>
-                <Text style={styles.title}>Shopping Cart</Text>
                 <ScrollView>
+                    <Text style={styles.title}>Shopping Cart</Text>
                     <View style={styles.mainView}>
-
                         <TouchableOpacity style={[styles.mainCart]}>
-                            <View style={{ flexDirection: 'row' }}>
-                                <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
-                                <View style={styles.heartView}>
-                                    <View>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
+                                    <View style={{ marginLeft: '5%', }}>
                                         <Text style={styles.name}>Product Name</Text>
                                         <Text style={styles.price}>$354.125</Text>
                                     </View>
-                                    <View>
-                                        <Heart style={{ marginLeft: wp('20%'), }} name={'heart'} size={20} color="red"
-                                            onPress={
-                                                () => this.props.navigation.navigate('#')} />
-                                        <Delete style={{ marginLeft: wp('20%'), marginTop: hp('5%'), }} name={'delete'} size={20} color={Color.greyPrimray}
-                                            onPress={
-                                                () => this.props.navigation.navigate('#')} />
-                                    </View>
+                                </View>
+                                <View style={{}}>
+                                    <Heart style={{ marginLeft: wp('0%'), }} name={'heart'} size={20} color="red"
+                                        onPress={() => this.props.navigation.navigate('#')} />
+                                    <Delete style={{ marginLeft: wp('0%'), marginTop: hp('5%'), }} name={'delete'} size={20} color={Color.greyPrimray}
+                                        onPress={() => this.props.navigation.navigate('#')} />
                                 </View>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.mainCart]}>
-                            <View style={{ flexDirection: 'row' }}>
-                                <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
-                                <View style={styles.heartView}>
-                                    <View>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
+                                    <View style={{ marginLeft: '5%', }}>
                                         <Text style={styles.name}>Product Name</Text>
                                         <Text style={styles.price}>$354.125</Text>
-                                    </View>
-                                    <View>
-                                        <Heart style={{ marginLeft: wp('20%'), }} name={'heart'} size={20} color="red"
-                                            onPress={
-                                                () => this.props.navigation.navigate('#')} />
-                                        <Delete style={{ marginLeft: wp('20%'), marginTop: hp('5%'), }} name={'delete'} size={20} color={Color.greyPrimray}
-                                            onPress={
-                                                () => this.props.navigation.navigate('#')} />
                                     </View>
                                 </View>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.mainCart]}>
-                            <View style={{ flexDirection: 'row' }}>
-                                <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
-                                <View style={styles.heartView}>
-                                    <View>
-                                        <Text style={styles.name}>Product Name</Text>
-                                        <Text style={styles.price}>$354.125</Text>
-                                    </View>
-                                    <View>
-                                        <Heart style={{ marginLeft: wp('20%'), }} name={'heart'} size={20} color="red"
-                                            onPress={
-                                                () => this.props.navigation.navigate('#')} />
-                                        <Delete style={{ marginLeft: wp('20%'), marginTop: hp('5%'), }} name={'delete'} size={20} color={Color.greyPrimray}
-                                            onPress={
-                                                () => this.props.navigation.navigate('#')} />
-                                    </View>
+                                <View style={{}}>
+                                    <Heart style={{ marginLeft: wp('0%'), }} name={'heart'} size={20} color="red"
+                                        onPress={() => this.props.navigation.navigate('#')} />
+                                    <Delete style={{ marginLeft: wp('0%'), marginTop: hp('5%'), }} name={'delete'} size={20} color={Color.greyPrimray}
+                                        onPress={() => this.props.navigation.navigate('#')} />
                                 </View>
                             </View>
                         </TouchableOpacity>
@@ -112,7 +88,7 @@ export default class shoppingCart extends React.Component {
                         </View>
                         <View style={styles.border}></View>
                     </View>
-                    <TouchableOpacity onPress = {() => {this.props.navigation.navigate('checkOut')}} style={styles.checkoutView}>
+                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('checkOut') }} style={styles.checkoutView}>
                         <Text style={styles.checkout}>Proceed to Checkout</Text>
                     </TouchableOpacity>
                 </ScrollView>
@@ -183,16 +159,16 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         marginVertical: hp('2%'),
     },
-    checkoutView:{
+    checkoutView: {
         backgroundColor: Color.green,
         marginHorizontal: wp('5%'),
-        height: hp('10%'),
+        height: 50,
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: hp('3%'),
     },
-    checkout:{
+    checkout: {
         color: '#000',
         fontWeight: '700'
     }

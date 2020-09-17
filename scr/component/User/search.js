@@ -42,13 +42,11 @@ export default class search extends React.Component {
         // this is here render
         return (
             <View style={styles.container}>
-                <View style={{ height: hp('9%'), }}>
-                    <View style={{ flexDirection: 'row', marginLeft: wp('65%'), marginTop: hp('2%'), }}>
+                <View style={{ height: hp('9%'),alignItems: 'flex-end', marginRight: '5%', }}>
+                    <View style={{ flexDirection: 'row', marginTop: hp('2%'), }}>
                         <IcIcon style={{ marginRight: wp('4%'), }} name={'md-options-outline'} size={24} color="#000"
-                             
                             //  onPress={()=>{this.props.navigation.openDrawer()}} 
                              />
-{/* call drawer */}
                         <AntIcon style={{}} name={'hearto'} size={24} color="#000"
                             onPress={
                                 () => this.props.navigation.navigate('#')} />
@@ -63,9 +61,11 @@ export default class search extends React.Component {
                             placeholderTextColor={Color.greyPrimray}
                             value={this.state.chooseDate}
                             onChangeText={chooseDate => this.setState({ chooseDate })} />
-                        <FeaIcon style={{ alignSelf: 'center' }} name={'search'} size={24} color={Color.greyPrimray}
+                        <View style={{justifyContent: 'center'}}>
+                        <FeaIcon style={{marginRight: 20, }} name={'search'} size={24} color={Color.greyPrimray}
                             onPress={
                                 () => this.props.navigation.navigate('#')} />
+                        </View>
                     </View>
                     <FlatList
                         numColumns={2}
@@ -102,16 +102,15 @@ const styles = StyleSheet.create({
     },
     inputView: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
         borderRadius: 5,
         backgroundColor: Color.greyAccent,
         marginBottom: hp('3%'),
     },
     input: {
-        alignSelf: 'center',
         paddingLeft: 10,
         color: '#000',
         height: 35,
-        width: 250,
         fontWeight: '500',
     },
     mainView: {

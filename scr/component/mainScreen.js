@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import { View, StatusBar,StyleSheet, ImageBackground, Image, Text, TouchableOpacity } from 'react-native';
+import { View, StatusBar,StyleSheet,Dimensions, ImageBackground, Image, Text, TouchableOpacity } from 'react-native';
 import Color from './../constant/color';
-
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default class mainScreen extends Component {
 
     render() {
         return (
             <View style={styles.container}>
-                    <TouchableOpacity style={{alignItems: 'center', justifyContent: 'center', backgroundColor: '#3AB54A', borderRadius: 5, height: 50, bottom: 10, width: '90%', }}
+                    <TouchableOpacity style={{alignItems: 'center', justifyContent: 'center', backgroundColor: '#3AB54A', borderRadius: 5, height: 50, bottom: 10, width: '90%',}}
                         onPress={() => this.props.navigation.navigate('welcome')}>
-                        <View style={{ height: 20, width: 90, }}>
                             <Text style={{ fontWeight: 'bold', fontSize: 15,  }}>USER VIEW</Text>
-                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={{alignItems: 'center', justifyContent: 'center',  backgroundColor: '#A1A1A1', borderRadius: 5, height: 50,  width: '90%', }}
                         onPress={() => this.props.navigation.navigate('adminScreen')}>

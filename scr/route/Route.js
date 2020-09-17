@@ -38,6 +38,7 @@ import publish from './../component/Admin/publish';
 import product from './../component/Admin/product';
 import facebookLogin from './../component/User/facebookLogin';
 import composers from './../component/Admin/composers';
+import demo from './../component/User/demo';
 
 const Route =  createStackNavigator({
     selectCategory: {
@@ -48,6 +49,12 @@ const Route =  createStackNavigator({
     },
     welcome: {
         screen: welcome,
+        navigationOptions: {
+            headerShown: false
+        },
+    },
+    demo: {
+        screen: demo,
         navigationOptions: {
             headerShown: false
         },
