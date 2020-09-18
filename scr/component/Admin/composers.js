@@ -25,13 +25,14 @@ export default class composers extends React.Component {
     }
     renderRow = ({ item }) => {
         return (
+
             <View style={styles.mainViewFolder}>
                 <View style={{ flexDirection: 'row' }}>
                     <Folder style={{ marginTop: wp('1%'), }} name={item.folderIcon} size={24} color={Color.greyPrimray}
                         onPress={
                             () => this.props.navigation.navigate('#')} />
                     <View style={styles.folderView}>
-                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('#') }} style={styles.folder}><Text>{item.folder}</Text></TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('composersProduct') }} style={styles.folder}><Text>{item.folder}</Text></TouchableOpacity>
                         <Text style={styles.date}>{item.date}</Text>
                     </View>
                 </View>
@@ -45,6 +46,7 @@ export default class composers extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                  
                 <View style={{ height: hp('9%'), }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: wp('5%'), marginTop: hp('2%'), }}>
                         <View style={{ flexDirection: 'row' }}>

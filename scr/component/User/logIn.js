@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
         backgroundColor: Color.homebackroundColor,
     },
     imagebackground: {
-        height: hp('100%'),
+        // height: hp('100%'),
     },
     backopicity: {
         marginLeft: '5%',

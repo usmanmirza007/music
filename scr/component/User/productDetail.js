@@ -140,6 +140,14 @@ export default class productDetail extends React.Component {
                             <Text style={styles.john}>Instrumention</Text>
                             <Text style={styles.john}>John Doe</Text>
                         </View>
+                        <View style={styles.buttonview}>
+                            <TouchableOpacity style={styles.cart}>
+                                <Image source={require('./../../image/cart.png')} style={{ tintColor: '#fff', alignSelf: 'center', width: 20, }} />
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('shoppingCart') }} style={styles.buyView}>
+                                <Text style={styles.buy}>BUT NOW</Text>
+                            </TouchableOpacity>
+                        </View>
                         <View style={styles.titleView}>
                             <Text style={styles.title}>Suggested Products</Text>
                             <Text style={styles.seeMore}>SEE MORE</Text>
@@ -255,14 +263,7 @@ export default class productDetail extends React.Component {
                                 onPress={() => this.props.navigation.navigate('#')} />
                             <Text style={styles.leave}>Send Invitation to friend</Text>
                         </TouchableOpacity>
-                        <View style={styles.buttonview}>
-                            <TouchableOpacity style={styles.cart}>
-                                <Image source={require('./../../image/cart.png')} style={{ tintColor: '#fff', alignSelf: 'center', width: 20, }} />
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('shoppingCart') }} style={styles.buyView}>
-                                <Text style={styles.buy}>BUY NOW</Text>
-                            </TouchableOpacity>
-                        </View>
+                        
                     </View>
                 </ScrollView>
             </View>
@@ -450,7 +451,7 @@ const styles = StyleSheet.create({
     },
     buttonview: {
         flexDirection: 'row',
-        marginVertical: hp('5%'),
+        marginVertical: hp('3%'),
 
     },
     cart: {

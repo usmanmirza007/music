@@ -12,13 +12,13 @@ export default class folderName extends React.Component {
         this.state = {
             item: [
                 { key: 1, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 2, folder: 'PDF', date: 'Date Created', option: 'options-vertical', music: 'musical-note' },
+                { key: 2, folder: 'PDF', date: 'Date Created', option: 'options-vertical', music: 'ios-document-text-outline' },
                 { key: 3, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 4, folder: 'PDF', date: 'Date Created', option: 'options-vertical', music: 'musical-note' },
+                { key: 4, folder: 'PDF', date: 'Date Created', option: 'options-vertical', music: 'ios-document-text-outline' },
                 { key: 5, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 6, folder: 'PDF', date: 'Date Created', option: 'options-vertical', music: 'musical-note' },
+                { key: 6, folder: 'PDF', date: 'Date Created', option: 'options-vertical', music: 'ios-document-text-outline' },
                 { key: 7, folder: 'Audio', date: 'Date Created', option: 'options-vertical', music: 'musical-notes-outline' },
-                { key: 8, folder: 'PDF', date: 'Date Created', option: 'options-vertical', music: 'musical-note' },
+                { key: 8, folder: 'PDF', date: 'Date Created', option: 'options-vertical', music: 'ios-document-text-outline' },
             ]
         };
     }

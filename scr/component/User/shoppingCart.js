@@ -82,6 +82,25 @@ export default class shoppingCart extends React.Component {
                                 </View>
                             </View>
                         </TouchableOpacity>
+                        <TouchableOpacity style={[styles.mainCart]}>
+                            <View style={{ flexDirection: 'row' }}>
+                                <Image source={require('./../../image/download.png')} style={styles.imageSecond} resizeMode='stretch' />
+                                <View style={styles.heartView}>
+                                    <View>
+                                        <Text style={styles.name}>Product Name</Text>
+                                        <Text style={styles.price}>$354.125</Text>
+                                    </View>
+                                    <View>
+                                        <Heart style={{ marginLeft: wp('20%'), }} name={'heart'} size={20} color="red"
+                                            onPress={
+                                                () => this.props.navigation.navigate('#')} />
+                                        <Delete style={{ marginLeft: wp('20%'), marginTop: hp('5%'), }} name={'delete'} size={20} color={Color.greyPrimray}
+                                            onPress={
+                                                () => this.props.navigation.navigate('#')} />
+                                    </View>
+                                </View>
+                            </View>
+                        </TouchableOpacity>
                         <View style={styles.totalView}>
                             <Text style={styles.name}>Total Amount</Text>
                             <Text style={styles.price}>$966.54</Text>

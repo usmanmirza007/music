@@ -35,6 +35,7 @@ export default class home extends React.Component {
                 { image: require('./../../image/images2.png') },
                 { image: require('./../../image/images2.png') },
                 { image: require('./../../image/images2.png') },
+                
             ],
            name: this.props.navigation.getParam('NAME'),
            image: this.props.navigation.getParam('IMAGE'),
