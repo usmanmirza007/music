@@ -118,6 +118,9 @@ export default class logIn extends Component {
     //         },
     //     );
     // };
+
+    // ##################################### facebook login ############################
+    
     initUser = (token) => {
         fetch('https://graph.facebook.com/v2.5/me?fields=email,first_name,last_name,picture.type(large),friends&access_token=' + token)
             .then((response) => {
@@ -140,6 +143,8 @@ export default class logIn extends Component {
                 console.log('ERROR GETTING DATA FROM FACEBOOK')
             })
     }
+
+    // ##################### google login ###################
 
     googleSignIn = async () => {
         try {
