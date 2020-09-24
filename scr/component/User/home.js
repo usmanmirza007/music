@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image,Dimensions, ScrollView, FlatList, ImageBackground, TouchableOpacity, } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 // import EnIcon from 'react-native-vector-icons/FontAwesome'
-import AntIcon from 'react-native-vector-icons/AntDesign'
+import AntIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import Color from './../../constant/color';
 import TabIcon from 'react-native-vector-icons/FontAwesome'
 const windowWidth = Dimensions.get('window').width;
@@ -76,9 +76,8 @@ export default class home extends React.Component {
             <View style={styles.container}>
                 <View style={{ height: hp('9%'),  alignItems: 'flex-end',}}>
                     <View style={{ flexDirection: 'row', marginTop: hp('2%'), }}>
-                        <AntIcon style={{}} name={'hearto'} size={24} color="#000"
-                            onPress={
-                                () => this.props.navigation.navigate('#')} />
+                        <AntIcon style={{}} name={'text-search'} size={24} color="#000"
+                            onPress={() => this.props.navigation.navigate('search')} />
                         <Image source={require('./../../image/cart.png')} style={{ width: 20, marginHorizontal: wp('4%'), }} />
                     </View>
                 </View>

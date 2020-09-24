@@ -21,6 +21,7 @@ import forgotPassword from './../component/User/forgotPassword';
 import changePassword from './../component/User/changePassword';
 import accountInformation from './../component/User/accountInformation';
 import checkOut from './../component/User/checkOut';
+import search from './../component/User/search';
 import nearestStores from './../component/User/nearestStores';
 import termsCondition from './../component/User/termsCondition';
 import aboutApp from './../component/User/aboutApp';
@@ -271,7 +272,7 @@ const Route =  createStackNavigator({
         },
     },
     search: {
-        screen: DashBoard,
+        screen: search,
         navigationOptions: {
             headerShown: false
         },

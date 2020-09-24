@@ -1,7 +1,7 @@
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createAppContainer } from 'react-navigation';
 import home from './../component/User/home';
-import search from './../component/User/search';
+import profile from './../component/User/profile';
 import category from './../component/User/category';
 import location from './../component/User/location';
 import setting from './../component/User/setting';
@@ -15,8 +15,8 @@ const TabScreens = createMaterialBottomTabNavigator({
             title:'',
         }
     },
-    search:{
-        screen: search,
+    profile:{
+        screen: profile,
         navigationOptions:  {
             title:'',
         }
@@ -40,7 +40,7 @@ const TabScreens = createMaterialBottomTabNavigator({
         }
     },
 }, {
-    order: ['home', 'search', 'category', 'location', 'setting'],
+    order: ['home', 'category', 'location', 'setting', 'profile'],
     initialRouteName: 'home',
     activeColor: '#000',
     inactiveColor: '#fff',

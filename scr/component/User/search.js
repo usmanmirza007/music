@@ -6,8 +6,6 @@ import AntIcon from 'react-native-vector-icons/AntDesign'
 import IcIcon from 'react-native-vector-icons/Ionicons'
 import FeaIcon from 'react-native-vector-icons/Feather'
 import Color from './../../constant/color';
-import TabIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-import { DrawerActions } from 'react-navigation-drawer';
 export default class search extends React.Component {
     constructor(props) {
         super(props);
@@ -25,17 +23,6 @@ export default class search extends React.Component {
             ]
 
         };
-    }
-    static navigationOptions = {
-        tabBarIcon: ({ tintColor }) => (
-            <TabIcon
-                name={'text-search'}
-                type='font-awesome'
-                size={25}
-                style={{ color: tintColor }}
-                containerStyle={{ width: 10 }}
-            />
-        )
     }
 
     render() {
