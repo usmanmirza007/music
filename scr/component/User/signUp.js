@@ -54,15 +54,15 @@ export default class signIn extends Component {
                 })
             }).then((response) => response.json())
                 .then((responseJson) => {
-                    console.log('res', responseJson);
-                    if (responseJson === 200) {
+                    console.log('res', responseJson.msg);
+                    if (responseJson.msg === "user registered successfully") {
                         {this.props.navigation.navigate('selectCategory')}
 
                     } 
-                    // else if (responseJson.msg == 'user already exist') {
-                    //     alert('Email is Already Exist');
-                    //     return;
-                    // } 
+                    else if (responseJson.msg == 'user already exist') {
+                        alert('Email is Already Exist');
+                        return;
+                    } 
                     else {
                         alert('SOMETHING WENT WRONG !');
                         return;

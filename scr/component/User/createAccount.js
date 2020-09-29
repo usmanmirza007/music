@@ -176,21 +176,20 @@ export default class createAccount extends Component {
         const { fName, lName, email } = this.state
         return (
             <View style={styles.loginContainer}>
-                <ScrollView>
-                    <ImageBackground style={styles.imagebackground} source={require('./../../image/back.png')} resizeMode={'stretch'}>
+                {/* <ScrollView> */}
+                    <ImageBackground style={styles.imagebackground} source={require('./../../image/back1.png')} resizeMode={'stretch'}>
                         <View style={styles.backopicity}>
                             <IcIcon style={{ marginLeft: 0, }} name={'keyboard-arrow-left'} size={40} color="#000"
                                 onPress={() => this.props.navigation.goBack()} />
                         </View>
                         <View style={styles.viewiconmusic}>
-                            <Image style={{ marginTop: 10 }} source={require('../../image/music.png')} />
+                            <Image style={{ marginTop: 0 }} source={require('../../image/music.png')} />
                             <Text style={styles.welcometext}><Text style={{ fontWeight: '700' }} >Welcome </Text> {'\n'}to Eufonia</Text>
                         </View>
                         <View style={styles.viewlogin}>
                             <Text style={styles.logintext}>Create Account</Text>
                         </View>
-                    </ImageBackground>
-                    <View style={{ alignItems: 'center', marginTop: 40, }}>
+                    <View style={{ alignItems: 'center', marginTop: 80, }}>
                         <LoginButton
                             onLoginFinished={
                                 (error, result) => {
@@ -220,7 +219,7 @@ export default class createAccount extends Component {
                     <Text style={{ marginLeft: 0, }}>{email}</Text> */}
 
                     {/* ##################### google login #################### */}
-                    <View style={{ alignItems: 'center', marginTop: 20, }}>
+                    <View style={{ alignItems: 'center', marginTop: 10, }}>
                         <GoogleSigninButton
                             style={{ width: 192, height: 48 }}
                             size={GoogleSigninButton.Size.Wide}
@@ -231,7 +230,9 @@ export default class createAccount extends Component {
                     <TouchableOpacity style={styles.bottomview} onPress={() => this.props.navigation.navigate('signUp')}>
                         <Text style={styles.opicitytext2}>or Signup with via Email Address</Text>
                     </TouchableOpacity>
-                </ScrollView>
+                    </ImageBackground>
+
+                {/* </ScrollView> */}
             </View>
         );
     }
@@ -242,7 +243,8 @@ const styles = StyleSheet.create({
         backgroundColor: Color.homebackroundColor,
     },
     imagebackground: {
-        height: hp('100%'),
+        // height: hp('100%'),
+        flex: 1
     },
     backopicity: {
         marginLeft: '5%',

@@ -9,5 +9,8 @@ export default {
     orange: '#FDC8B8',
     star: '#FFCC00',
     green: '#3AB54A',
-    black: '#000000'
+    black: '#000000',
+    Client_Secret: 'KUtqZIUMVrTbLKCiFtvQFHcHfF5wHTlls6wFG8f3',
+    Client_ID: '2',
+    grant_type: 'password'
 }

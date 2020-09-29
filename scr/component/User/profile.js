@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ScrollView, ImageBackground,Alert, Modal, Dimensions, Image, Text, Button, StyleSheet, TouchableOpacity, DevSettings } from 'react-native';
+import { View, StatusBar, ScrollView, ImageBackground, Alert, Modal, Dimensions, Image, Text, Button, StyleSheet, TouchableOpacity, DevSettings } from 'react-native';
 import Color from './../../constant/color';
 import { TextInput } from 'react-native-gesture-handler';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -12,63 +12,80 @@ export default class profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
+            Email: '',
             fname: '',
             lname: '',
-            auth: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5MTk3ZGIzYi00OTJhLTQ4YWYtYWQ1My02ZDk5ZDEzNmVhMTciLCJqdGkiOiJjN2MwNDliOWViOTVhNTg4NGMxYmM2ZGI0MjdlYzBjNjFhNWYzMmQ0ZmU1MjAzNGQwNDFmMzZjZDBlNDVjMzEwN2M4OWFjMzU4YWNkMTFmNCIsImlhdCI6MTYwMDg3NDY0MCwibmJmIjoxNjAwODc0NjQwLCJleHAiOjE2MzI0MTA2NDAsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.FY6Y8ewnbbq-cZ_4NIaaIX0xTRoHThPI9QgLqP1-VBEVsNWzqQ49xJvHQ_G9rAcUSICsJbdeap_KZS11HGMaJ9PYvlwGHkzn1CwG17aOZUj9846Ghrm5LQhWK4vl2P8t835urru2LXlJMraZKLx4hrsG1fTm86f_cqj8WuQPpVzWKaAoY34SxCRm0kOjf6gDH4VVRGobQqXTSgzZBCsYxqDp0kxoAGDYxpL5hYYCyEV3n67LGMU_tXIFz5rhqpV0oucHOrhEvzp1B45J3-ryrT6JhqztCrvRQmLYxXMWu3bSMkyi8wwLwyAn4OdTftHMyv1hPXTE_X3Ylr9xqTIsHGrL8XUtnfWK4CZzfkP5-67c26CFAv1GhAz9-77IIrQOysSx_rsx2vfAUvjkNC8qSQWHUs-B0Ge-olLPMjsNWHCsYwtvlGEZ7_nKhYFVAb_fTOLY7LuKFmmq5d-w7gMmE6FBOkf5RQd8JrlXUM0ZVOM0eBN7PKgOELS2ZQgGat003fyk50-PpjraF4a4LFcgvbQhMZehFds3B7ahBFdsz3iQke8jazVkO0Rp5EnRjRIJQZKxAhq3aPz731_W30mM9UrQ4IpOxeqWI0_SD4NMv5WLRLtvPV0nEi0Ni-JyEWZbdhDOob_zzHUq-ucgUXCE_dk9Kl6sUYQPQAzLLYSuSYo'
+            // auth: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiMzVlNWJmNzJjMjJhZTk5OTc3NWI3NjUzMWEzODc3ZDA2ZTJhZjk0OTEyMzZjYjg3ZGY4MGEyOTU2NWFmYTkzZjY4MTliZDYwNGQxOTA2NTMiLCJpYXQiOjE2MDEyNzE2NzEsIm5iZiI6MTYwMTI3MTY3MSwiZXhwIjoxNjMyODA3NjcxLCJzdWIiOiI3Iiwic2NvcGVzIjpbXX0.jT896teinm0VccIXnWY4WdmOFrTzzphSZde96dIZWowzd-1l0c55dtXqwDkBpiymvi0QcuqN4G7aFnCKtNA0jTWtliv73UO8UEcrryl63-w2CsstrwYwfIZgiUZYYAp_vkn5l6faBc9ovRaYCrXNfXpHITkmwlhYUKrpTO5yFXKrvSMywFwdWeyB2bFWRZC2PWKLQd1S2SEgL9pLBg-9HWx1dDVI-NJ9Un-skk0A1iu8nhxVDPU0NlZuwAtKpBZCaVTZjFagAwkgN2CVgbWyIA3GfJ4qOgJSqkZyW93fsMXoj9f_43Nr1oa_-pAlxb5FK1-7zX2hB9P1oLyvckfQ-bEGlAc6t_MTKUnxvld363--5W96JvURGbetn75b3b1leh8iULcv5RUVu6poeBTMdBGu7QXF_dTnBrdmjoZNaZX-jCB2h_W02fCtDQqzbWUNt00mDHWt2gXc_l4s15XGdp-WumZrbHz_RNRHYzg8L5DoA_t_o56A_5WHZOY2CoSi26_CxJS99I3BjThHWmYZPwPgjSAy0QqakXfdZAfUwgXuQSxh4rR8tZOf77b9U-4i1XAA7Y_GNegj4M5BtpaYqaFDzM23h42HbwL6ewF_n52g2baETzt6pglmCFTIk1v7IvWDnxY-gqbQL_aYyp6hkEeQlsS1VqnTbuddov24dwY",
+            // tokenType: this.props.navigation.getParam('TOKENTYPE'),
+            token: this.props.navigation.getParam('TOKEN'),
+            // auth: tokenType, " ",
         };
+        // console.log("token", this.state.token);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.profile()
-          
-        
     }
-    // profile = async () =>{
-    //     await fetch('http://eufonia.thesmartfreelancer.com/api/user')
-    //     .then((response) => response.json())
-    //     .then((responseJsonPosts) => {
-    //         console.log(responseJsonPosts)
-    //         // console.log(responseJsonPosts.code)
-    //         this.setState({
-    //             responseDataPosts: responseJsonPosts
-    //         })
-    //     })
-    //     .catch((error) => {
-    //         Alert.alert(error)
-    //     })
-    // }
-    async profile(){
-        const {auth} = this.state
+
+    async profile() {
+        const { auth, tokenType, token } = this.state
         await fetch('http://eufonia.thesmartfreelancer.com/api/user', {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Accept': 'application/json',
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                'Authorization': token
             },
-            body: JSON.stringify({
-                Authorization: auth,
-            
-            })
         }).then((response) => response.json())
             .then((responseJson) => {
-                console.log('res',responseJson);
-                // this.setState({
-                //     fname: responseJson.first_name
-                // })
-                // if (responseJson === 200) {
-                   
-                // } 
-                // else {
-                //     alert('SOMETHING WENT WRONG !');
-                //     return;
-                // }
+                console.log('res', responseJson.data.email);
+                if (responseJson.msg === "user data") {
+                    this.setState({
+                        fname: responseJson.data.first_name,
+                        lname: responseJson.data.last_name,
+                        Email: responseJson.data.email,
+                    })
+                }
+                else{
+                    Alert.alert('Unauthenticated')
+                }
             })
             .catch((error) => {
                 alert(error);
             });
     }
-   
+
+
+
+
+
+    // publish = async () => {
+    //     const { auth } = this.state
+    //     await fetch('http://eufonia.thesmartfreelancer.com/api/user', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-type': 'application/json',
+    //             'Authorization': auth
+    //         },
+    //     }).then((response) => response.json())
+    //         .then((responseJson) => {
+    //             console.log("response", responseJson);
+
+    //             if (responseJson.success === '1') {
+    //                 this.props.navigation.navigate('publish')
+    //                 // AsyncStorage.setItem('OFFERID2', ID);
+    //                 //   console.log("OFFERID", responseJson.obj.id)
+    //                 //   let ID = `${responseJson.obj.id}`;
+    //                 //   AsyncStorage.setItem('OFFERID', ID);
+    //                 Alert.alert('successfully')
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             alert(error);
+    //         });
+    // }
+
     static navigationOptions = {
         tabBarIcon: ({ tintColor }) => (
             <TabIcon
@@ -81,8 +98,8 @@ export default class profile extends Component {
         )
     }
     render() {
+        const { fname, lname, Email } = this.state
         return (
-
             <View style={styles.signinContainer}>
                 <View style={{ marginLeft: '1%', }}>
                     <IcIcon style={{}} name={'keyboard-arrow-left'} size={40} color="#000"
@@ -92,17 +109,24 @@ export default class profile extends Component {
                     <View style={styles.headingcontainer}>
                         <Text style={{ color: '#3AB54A', marginLeft: '5%', fontSize: 15, }}>Profile</Text>
                     </View>
+                    <Image source={require('./../../image/user2.jpg')} style={{ width: 70, height: 70, marginTop: 10, borderRadius: 70, marginLeft: wp('5%'), }} />
                     <View style={styles.informationcontainer}>
                         <Text >First Name</Text>
-                        <Text >John Doe</Text>
+                        <Text >{fname}</Text>
                     </View>
                     <View style={styles.informationcontainer}>
                         <Text>Last Name</Text>
-                        <Text>john </Text>
+                        <Text>{lname}</Text>
                     </View>
                     <View style={styles.informationcontainer}>
                         <Text>Email Address</Text>
-                        <Text>John Doe@mail.com</Text>
+                        <Text>{Email}</Text>
+                    </View>
+                    <View style={{ marginVertical: '2%', }}>
+                        <TouchableOpacity style={styles.touchableopacity}
+                            onPress={() => this.props.navigation.navigate('tab')}>
+                            <Text style={styles.textopacity}>CHANGE PASSWORD</Text>
+                        </TouchableOpacity>
                     </View>
                 </ScrollView>
             </View>
@@ -121,7 +145,18 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginRight: 20,
         marginBottom: 10,
-
     },
+    touchableopacity: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#3AB54A',
+        borderRadius: 5,
+        height: 50,
+        marginHorizontal: '5%',
+    },
+    textopacity: {
+        fontWeight: 'bold',
+        textAlign: 'center'
+    }
 
 })

@@ -181,8 +181,8 @@ export default class logIn extends Component {
         const { fName, lName, email } = this.state
         return (
             <View style={styles.loginContainer}>
-                <ScrollView>
-                    <ImageBackground style={styles.imagebackground} source={require('./../../image/back.png')} resizeMode={'stretch'}>
+                {/* <ScrollView> */}
+                    <ImageBackground style={styles.imagebakground} source={require('./../../image/back1.png')} resizeMode={'stretch'}>
                         <View style={styles.backopicity}>
                             <IcIcon style={{ marginLeft: 0, }} name={'keyboard-arrow-left'} size={40} color="#000"
                                 onPress={() => this.props.navigation.goBack()} />
@@ -194,8 +194,7 @@ export default class logIn extends Component {
                         <View style={styles.viewlogin}>
                             <Text style={styles.logintext}>Login</Text>
                         </View>
-                    </ImageBackground>
-                    <View style={{ alignItems: 'center', marginTop: 40, }}>
+                    <View style={{ alignItems: 'center', marginTop: 80, }}>
                         <LoginButton
                             onLoginFinished={
                                 (error, result) => {
@@ -218,14 +217,14 @@ export default class logIn extends Component {
                             }
                             onLogoutFinished={() => console.log("logout.")} />
                     </View>
-                    <View style={{ flexDirection: 'row' }}>
+                    {/* <View style={{ flexDirection: 'row' }}>
                         <Text style={{ marginLeft: 0, }}>{fName}</Text>
                         <Text style={{ marginLeft: 5, }}>{lName}</Text>
                     </View>
-                    <Text style={{ marginLeft: 0, }}>{email}</Text>
+                    <Text style={{ marginLeft: 0, }}>{email}</Text> */}
 
                     {/* ##################### google login #################### */}
-                    <View style={{ alignItems: 'center' }}>
+                    <View style={{ alignItems: 'center', marginTop: 10, }}>
                         <GoogleSigninButton
                             style={{ width: 192, height: 48 }}
                             size={GoogleSigninButton.Size.Wide}
@@ -236,7 +235,9 @@ export default class logIn extends Component {
                     <TouchableOpacity style={styles.bottomview} onPress={() => this.props.navigation.navigate('signIn')}>
                         <Text style={styles.opicitytext2}>or Login with via Email Address</Text>
                     </TouchableOpacity>
-                </ScrollView>
+                    </ImageBackground>
+
+                {/* </ScrollView> */}
             </View>
         );
     }
@@ -246,8 +247,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Color.homebackroundColor,
     },
-    imagebackground: {
-        // height: hp('100%'),
+    imagebakground: {
+        flex: 1
     },
     backopicity: {
         marginLeft: '5%',

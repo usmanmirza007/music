@@ -18,8 +18,7 @@ export default class Welcome extends Component {
         return (
             <View style={styles.welcomeContainer}>
                 <ScrollView>
-                    <ImageBackground style={styles.imagebakground}
-                        source={require('./../../image/back1.png')} resizeMode={'stretch'} >
+                    <ImageBackground style={styles.imagebakground} source={require('./../../image/back1.png')} resizeMode={'stretch'} >
                         <View style={styles.imageview2}>
                             <Image style={styles.icon}
                                 source={require('./../../image/music.png')} />
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
     },
     imageview2: {
         flexDirection: 'row',
-        marginTop: '15%',
+        marginTop: '10%',
         marginLeft: 20
     },
     textview: {
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
         height: 150,
         width: 150,
         alignSelf: 'center',
-        marginTop: '35%',
+        marginTop: '25%',
     },
     icon: {
         marginTop: 10,
